@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <!--header-section-->
+    <header>
+        <div id="menu-bar" class="fas fa-bars"></div>
+        <a href="#" class="logo"><span>DDT </span>Travel</a>
+
+        <nav class="navbarr">
+            <a>@Html.ActionLink("Trở về trang chủ", "Index", "Home")</a>
+        </nav>
+
+        <div class="icons">
+            <i class="fas fa-search" id="search-btn"></i>
+            <i class="fas fa-user" id="login-btn"></i>
+        </div>
+
+        <form action="" class="search-bar-container">
+            <input type="search" id="search-bar" placeholder="tìm kiếm..." />
+            <label for="search-bar" class="fas fa-search"></label>
+        </form>
+    </header>
+    <!--end-header-section-->
+    <!--login-form-->
+    <div class="login-form-container">
+        <i class="fas fa-times" id="form-close"></i>
+        <form action="">
+            <h3>Login</h3>
+            <input type="email" class="box" placeholder="Nhập Email" />
+            <input type="password" class="box" placeholder="Nhập Mật Khẩu" />
+            <input type="submit" value="Đăng Nhập" class="btn" />
+            <input type="checkbox" id="remember">
+            <label for="remember">Nhớ mật khẩu</label>
+            <p>Quên mật khẩu? <a href="#">Nhấn vào đây</a></p>
+            <p>chưa có tài khoản? <a>@Html.ActionLink("đăng ký ngay", "Signup", "Home")</a></p>
+        </form>
+    </div>
+    <!--end-login-form-->
+
+
+    <div class="body-content">
+        @RenderBody()
+    </div>
+
+    <!--footer-section-->
+    <section class="connect">
+        <div class="container-fluid padding">
+            <div class="row text-center padding">
+                <h1 class="col-12 heading">
+                    <span>k</span>
+                    <span>ê</span>
+                    <span>t</span>
+                    <span class="space"></span>
+                    <span>n</span>
+                    <span>ố</span>
+                    <span>i</span>
+                </h1>
+                <div class="col-12 social padding">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/channel/UCwCo9pvk0VmHD4CyOivEpaQ"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section class="footer">
+        <div class="container-fluid padding">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <hr class="light" />
+                    <h5>cửa hàng chính</h5>
+                    <hr class="light" />
+                    <p>000-000-0000</p>
+                    <p>Monika@mail.com</p>
+                    <p>100 Monika street</p>
+                    <p>City, State, 00000</p>
+                </div>
+                <div class="col-md-4">
+                    <hr class="light" />
+                    <h5>giờ làm việc</h5>
+                    <hr class="light" />
+                    <p>Monday-Friday: 9am - 5pm</p>
+                    <p>Saturday: 10am - 4pm </p>
+                    <p>Sunday: Closed</p>
+                </div>
+                <div class="col-md-4">
+                    <hr class="light" />
+                    <h5>chi nhánh khác</h5>
+                    <hr class="light" />
+                    <p>City, State, 00000</p>
+                    <p>City, State, 00000</p>
+                    <p>City, State, 00000</p>
+                    <p>City, State, 00000</p>
+                </div>
+                <div class="col-12">
+                    <hr class="light-100" />
+                    <h5>&copy; DDT Group</h5>
+                </div>
+            </div>
+        </div>
+        @*<div class="box-container">
+                <div class="box">
+                    <h3>về chúng tôi</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In congue scelerisque hendrerit. Morbi iaculis euismod lacus eget elementum. Fusce et lacus diam. Maecenas gravida imperdiet eleifend</p>
+                </div>
+                <div class="box">
+                    <h3>chi nhánh</h3>
+                    <a href="#">VietNam</a>
+                    <a href="#">Japan</a>
+                    <a href="#">USA</a>
+                </div>
+                <div class="box">
+                    <h3>lối tắt</h3>
+                    <a href="#">Home</a>
+                    <a href="#">book</a>
+                    <a href="#">tours</a>
+                    <a href="#">services</a>
+                    <a href="#">gallery</a>
+                    <a href="#">review</a>
+                    <a href="#">contact</a>
+                </div>
+                <div class="box">
+                    <h3>theo dõi chúng tôi</h3>
+                    <a href="#">facebook</a>
+                    <a href="#">instagram</a>
+                    <a href="#">twitter</a>
+                    <a href="#">youtube</a>
+                </div>
+            </div>*@
+    </section>
+    <!--end-footer-section-->
+
+    @Scripts.Render("~/Scripts/script.js")
+</body>
+@*<body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>*@
+</html>
+
