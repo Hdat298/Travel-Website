@@ -1,0 +1,50 @@
+﻿@model Travel_Website.Models.HinhAnhTinhThanh
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>HinhAnhTinhThanh</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaHinhAnhTinhThanh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaHinhAnhTinhThanh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaTinhThanh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaTinhThanh)
+        </dd>
+
+        <dd>
+            @Html.DisplayFor(model => model.HinhAnh)
+        </dd>
+
+        <dd>
+            <img src="@Url.Content(Model.HinhAnh)" alt="Image"/>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
