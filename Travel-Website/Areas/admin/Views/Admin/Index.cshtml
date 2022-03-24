@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Admin Login";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="~/Areas/Resources/style.css"/>
+</head>
+<body>
+    <div class="container">
+        <div class="img">
+            <img src="~/Areas/Resources/images/adminLog-img.svg" />
+        </div>
+        <div class="login-container">
+            <form>
+                <img class="avatar" src="~/Areas/Resources/images/ava-img.svg" />
+                <h2>Login</h2>
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                        <h5>Tên đăng nhập</h5>
+                        <input class="input" type="text" />
+                    </div>
+                </div>
+
+                <div class="input-div two">
+                    <div class="i">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div>
+                        <h5>Mật khẩu</h5>
+                        <input class="input" type="password" />
+                    </div>
+                </div>
+                <a href="#">Quên mật khẩu?</a>
+                <input type="submit" class="btn" value="Đăng nhập" />
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+    @Scripts.Render("~/Scripts/script.js")
+</body>
+</html>
