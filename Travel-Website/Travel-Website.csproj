@@ -64,7 +64,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
+    <Reference Include="System.Web">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
@@ -125,6 +127,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagesTController.cs" />
+    <Compile Include="Controllers\KhachHangController.cs" />
+    <Compile Include="Controllers\LoaiTourController.cs" />
+    <Compile Include="Controllers\TinhThanhController.cs" />
+    <Compile Include="Controllers\TourController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -259,6 +265,25 @@
     <Content Include="Views\Shared\Layout2.cshtml" />
     <Content Include="Views\ImagesT\Index.cshtml" />
     <Content Include="Views\ImagesT\Details.cshtml" />
+    <Content Include="Views\ImagesT\Create.cshtml" />
+    <Content Include="Views\ImagesT\Edit.cshtml" />
+    <Content Include="Views\TinhThanh\Index.cshtml" />
+    <Content Include="Views\TinhThanh\Details.cshtml" />
+    <Content Include="Views\TinhThanh\HinhAnhs.cshtml" />
+    <Content Include="Views\TinhThanh\Create.cshtml" />
+    <Content Include="Views\TinhThanh\Edit.cshtml" />
+    <Content Include="Views\Tour\Index.cshtml" />
+    <Content Include="Views\Tour\Details.cshtml" />
+    <Content Include="Views\Tour\Create.cshtml" />
+    <Content Include="Views\Tour\Edit.cshtml" />
+    <Content Include="Views\LoaiTour\Index.cshtml" />
+    <Content Include="Views\LoaiTour\Details.cshtml" />
+    <Content Include="Views\LoaiTour\Create.cshtml" />
+    <Content Include="Views\LoaiTour\Edit.cshtml" />
+    <Content Include="Views\KhachHang\Index.cshtml" />
+    <Content Include="Views\KhachHang\Details.cshtml" />
+    <Content Include="Views\KhachHang\Create.cshtml" />
+    <Content Include="Views\KhachHang\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
