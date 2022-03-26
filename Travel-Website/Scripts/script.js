@@ -7,7 +7,7 @@ let menu = document.querySelector('#menu-bar');
 let navbar = document.querySelector('.navbarr');
 let videoBtn = document.querySelectorAll('.vid-btn');
 
-const inputs = document.querySelectorAll('.input');
+let inputs = document.querySelectorAll('.input');
 
 function focusFunc() {
     let parent = this.parentNode.parentNode;
