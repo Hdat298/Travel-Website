@@ -12,21 +12,21 @@ namespace Travel_Website.Controllers
         // GET: Tour
         public ActionResult Index()
         {
-            DataClasses1DataContext context = new DataClasses1DataContext();
+            Model1 context = new Model1();
             List<Tour> Tours = context.Tours.ToList();
             return View(Tours);
         }
 
         public ActionResult Details(int id)
         {
-            DataClasses1DataContext context = new DataClasses1DataContext();
+            Model1 context = new Model1();
             Tour p = context.Tours.FirstOrDefault(x => x.ID == id);
             return View(p);
         }
 
         //public ActionResult HinhAnhs(int id)
         //{
-        //    DataClasses1DataContext context = new DataClasses1DataContext();
+        //    Model1 context = new Model1();
         //    List<HinhAnhTour> Tours = context.HinhAnhTours.Where(x => x.MaTour == id).ToList();
         //    return View(Tours);
         //}
@@ -35,7 +35,7 @@ namespace Travel_Website.Controllers
         {
             if (Request.Form.Count > 0)
             {
-                DataClasses1DataContext context = new DataClasses1DataContext();
+                Model1 context = new Model1();
                 Tour Tour = new Tour();
                 Tour.TenTour = Request.Form["TenTour"];
                 Tour.Gia = int.Parse(Request.Form["Gia"]);
@@ -44,8 +44,8 @@ namespace Travel_Website.Controllers
                 Tour.SoCho = int.Parse(Request.Form["SoCho"]);
                 Tour.NoiDung = Request.Form["NoiDung"]; 
 
-                context.Tours.InsertOnSubmit(Tour);
-                context.SubmitChanges();
+                context.Tours.Add(Tour);
+                context.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View();
@@ -53,7 +53,7 @@ namespace Travel_Website.Controllers
 
         public ActionResult Edit(int id)
         {
-            DataClasses1DataContext context = new DataClasses1DataContext();
+            Model1 context = new Model1();
             Tour Tour = context.Tours.FirstOrDefault(x => x.ID == id);
             if (Request.Form.Count == 0)
             {
@@ -66,18 +66,18 @@ namespace Travel_Website.Controllers
             Tour.SoCho = int.Parse(Request.Form["SoCho"]);
             Tour.NoiDung = Request.Form["NoiDung"];
 
-            context.SubmitChanges();
+            context.SaveChanges();
             return RedirectToAction("Index");
         }
 
         public ActionResult Delete(int id)
         {
-            DataClasses1DataContext context = new DataClasses1DataContext();
+            Model1 context = new Model1();
             Tour Tour = context.Tours.FirstOrDefault(x => x.ID == id);
             if (Tour != null)
             {
-                context.Tours.DeleteOnSubmit(Tour);
-                context.SubmitChanges();
+                context.Tours.Remove(Tour);
+                context.SaveChanges();
             }
             return RedirectToAction("Index");
         }

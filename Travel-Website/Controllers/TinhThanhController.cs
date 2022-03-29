@@ -12,21 +12,21 @@ namespace Travel_Website.Controllers
         // GET: TinhThanh
         public ActionResult Index()
         {
-            DataClasses1DataContext context = new DataClasses1DataContext();
+            Model1 context = new Model1();
             List<TinhThanh> tinhThanhs = context.TinhThanhs.ToList();
             return View(tinhThanhs);
         }
 
         public ActionResult Details(int id)
         {
-            DataClasses1DataContext context = new DataClasses1DataContext();
+            Model1 context = new Model1();
             TinhThanh p = context.TinhThanhs.FirstOrDefault(x => x.ID == id);
             return View(p);
         }
 
         public ActionResult HinhAnhs(int id)
         {
-            DataClasses1DataContext context = new DataClasses1DataContext();
+            Model1 context = new Model1();
             List<HinhAnhTinhThanh> TinhThanhs = context.HinhAnhTinhThanhs.Where(x => x.MaTinhThanh == id).ToList();
             return View(TinhThanhs);
         }
@@ -35,13 +35,13 @@ namespace Travel_Website.Controllers
         {
             if (Request.Form.Count > 0)
             {
-                DataClasses1DataContext context = new DataClasses1DataContext();
+                Model1 context = new Model1();
                 TinhThanh tinhThanh = new TinhThanh();
                 tinhThanh.TenTinhThanh = Request.Form["TenTinhThanh"];
                 tinhThanh.MoTa = Request.Form["MoTa"];
 
-                context.TinhThanhs.InsertOnSubmit(tinhThanh);
-                context.SubmitChanges();
+                context.TinhThanhs.Add(tinhThanh);
+                context.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View();
@@ -49,7 +49,7 @@ namespace Travel_Website.Controllers
 
         public ActionResult Edit(int id)
         {
-            DataClasses1DataContext context = new DataClasses1DataContext();
+            Model1 context = new Model1();
             TinhThanh tinhThanh = context.TinhThanhs.FirstOrDefault(x => x.ID == id);
             if (Request.Form.Count == 0)
             {
@@ -58,18 +58,18 @@ namespace Travel_Website.Controllers
             tinhThanh.TenTinhThanh = Request.Form["TenTinhThanh"];
             tinhThanh.MoTa = Request.Form["MoTa"];
 
-            context.SubmitChanges();
+            context.SaveChanges();
             return RedirectToAction("Index");
         }
 
         public ActionResult Delete(int id)
         {
-            DataClasses1DataContext context = new DataClasses1DataContext();
+            Model1 context = new Model1();
             TinhThanh tinhThanh = context.TinhThanhs.FirstOrDefault(x => x.ID == id);
-            if(tinhThanh != null)
+            if (tinhThanh != null)
             {
-                context.TinhThanhs.DeleteOnSubmit(tinhThanh);
-                context.SubmitChanges();
+                context.TinhThanhs.Remove(tinhThanh);
+                context.SaveChanges();
             }
             return RedirectToAction("Index");
         }

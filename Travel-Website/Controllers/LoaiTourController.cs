@@ -12,21 +12,21 @@ namespace Travel_Website.Controllers
         // GET: LoaiLoaiTour
         public ActionResult Index()
         {
-            DataClasses1DataContext context = new DataClasses1DataContext();
+            Model1 context = new Model1();
             List<LoaiTour> LoaiTours = context.LoaiTours.ToList();
             return View(LoaiTours);
         }
 
         public ActionResult Details(int id)
         {
-            DataClasses1DataContext context = new DataClasses1DataContext();
+            Model1 context = new Model1();
             LoaiTour p = context.LoaiTours.FirstOrDefault(x => x.ID == id);
             return View(p);
         }
 
         //public ActionResult HinhAnhs(int id)
         //{
-        //    DataClasses1DataContext context = new DataClasses1DataContext();
+        //    Model1 context = new Model1();
         //    List<HinhAnhLoaiTour> LoaiTours = context.HinhAnhLoaiTours.Where(x => x.MaLoaiTour == id).ToList();
         //    return View(LoaiTours);
         //}
@@ -35,14 +35,14 @@ namespace Travel_Website.Controllers
         {
             if (Request.Form.Count > 0)
             {
-                DataClasses1DataContext context = new DataClasses1DataContext();
+                Model1 context = new Model1();
                 LoaiTour LoaiTour = new LoaiTour();
                 LoaiTour.TenLoaiTour = Request.Form["TenLoaiTour"];
                 LoaiTour.Mota = Request.Form["MoTa"];
 
 
-                context.LoaiTours.InsertOnSubmit(LoaiTour);
-                context.SubmitChanges();
+                context.LoaiTours.Add(LoaiTour);
+                context.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View();
@@ -50,7 +50,7 @@ namespace Travel_Website.Controllers
 
         public ActionResult Edit(int id)
         {
-            DataClasses1DataContext context = new DataClasses1DataContext();
+            Model1 context = new Model1();
             LoaiTour LoaiTour = context.LoaiTours.FirstOrDefault(x => x.ID == id);
             if (Request.Form.Count == 0)
             {
@@ -59,18 +59,18 @@ namespace Travel_Website.Controllers
             LoaiTour.TenLoaiTour = Request.Form["TenLoaiTour"];
             LoaiTour.Mota = Request.Form["MoTa"];
 
-            context.SubmitChanges();
+            context.SaveChanges();
             return RedirectToAction("Index");
         }
 
         public ActionResult Delete(int id)
         {
-            DataClasses1DataContext context = new DataClasses1DataContext();
+            Model1 context = new Model1();
             LoaiTour LoaiTour = context.LoaiTours.FirstOrDefault(x => x.ID == id);
             if (LoaiTour != null)
             {
-                context.LoaiTours.DeleteOnSubmit(LoaiTour);
-                context.SubmitChanges();
+                context.LoaiTours.Remove(LoaiTour);
+                context.SaveChanges();
             }
             return RedirectToAction("Index");
         }

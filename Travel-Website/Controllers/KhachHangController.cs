@@ -12,14 +12,14 @@ namespace Travel_Website.Controllers
         // GET: KhachHang
         public ActionResult Index()
         {
-            DataClasses1DataContext context = new DataClasses1DataContext();
+            Model1 context = new Model1();
             List<KhachHang> KhachHangs = context.KhachHangs.ToList();
             return View(KhachHangs);
         }
 
         public ActionResult Details(int id)
         {
-            DataClasses1DataContext context = new DataClasses1DataContext();
+            Model1 context = new Model1();
             KhachHang p = context.KhachHangs.FirstOrDefault(x => x.ID == id);
             return View(p);
         }
@@ -28,17 +28,15 @@ namespace Travel_Website.Controllers
         {
             if (Request.Form.Count > 0)
             {
-                DataClasses1DataContext context = new DataClasses1DataContext();
+                Model1 context = new Model1();
                 KhachHang KhachHang = new KhachHang();
                 KhachHang.Ten = Request.Form["TenKhachHang"];
-                KhachHang.Tuoi = Request.Form["Tuoi"];
-                KhachHang.GioiTinh = Request.Form["GioiTinh"];
                 KhachHang.SDT = Request.Form["SDT"];
                 KhachHang.TenDangNhap = Request.Form["TenDangNhap"];
                 KhachHang.MatKhau = Request.Form["MatKhau"];
 
-                context.KhachHangs.InsertOnSubmit(KhachHang);
-                context.SubmitChanges();
+                context.KhachHangs.Add(KhachHang);
+                context.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View();
@@ -46,31 +44,29 @@ namespace Travel_Website.Controllers
 
         public ActionResult Edit(int id)
         {
-            DataClasses1DataContext context = new DataClasses1DataContext();
+            Model1 context = new Model1();
             KhachHang KhachHang = context.KhachHangs.FirstOrDefault(x => x.ID == id);
             if (Request.Form.Count == 0)
             {
                 return View(KhachHang);
             }
             KhachHang.Ten = Request.Form["TenKhachHang"];
-            KhachHang.Tuoi = Request.Form["Tuoi"];
-            KhachHang.GioiTinh = Request.Form["GioiTinh"];
             KhachHang.SDT = Request.Form["SDT"];
             KhachHang.TenDangNhap = Request.Form["TenDangNhap"];
             KhachHang.MatKhau = Request.Form["MatKhau"];
 
-            context.SubmitChanges();
+            context.SaveChanges();
             return RedirectToAction("Index");
         }
 
         public ActionResult Delete(int id)
         {
-            DataClasses1DataContext context = new DataClasses1DataContext();
+            Model1 context = new Model1();
             KhachHang KhachHang = context.KhachHangs.FirstOrDefault(x => x.ID == id);
             if (KhachHang != null)
             {
-                context.KhachHangs.DeleteOnSubmit(KhachHang);
-                context.SubmitChanges();
+                context.KhachHangs.Remove(KhachHang);
+                context.SaveChanges();
             }
             return RedirectToAction("Index");
         }
