@@ -25,18 +25,26 @@ namespace Travel_Website.Controllers
             HinhAnhTinhThanh p = context.HinhAnhTinhThanhs.FirstOrDefault(x => x.ID == id);
             return View(p);
         }
-
-        public ActionResult Create([Bind(Include = "MaTinhThanh,MoTa,HinhAnh")] HinhAnhTinhThanh hinhAnhTinhThanh, HttpPostedFileBase file)
+        public ActionResult Create()
         {
-           if (ModelState.IsValid)
+            HinhAnhTinhThanh context = new HinhAnhTinhThanh();
+            return View(context);
+        }
+        [HttpPost]
+        public ActionResult Create(HinhAnhTinhThanh hinhAnhTinhThanh, HttpPostedFileBase file)
+        {
+            Model1 context = new Model1();
+
+            hinhAnhTinhThanh.MaTinhThanh = int.Parse(Request.Form["MaTinhThanh"]);
+            hinhAnhTinhThanh.MoTa = Request.Form["Mota"];
+
+            if(file != null)
             {
-                var db = new Model1();
                 hinhAnhTinhThanh.HinhAnh = new byte[file.ContentLength];
                 file.InputStream.Read(hinhAnhTinhThanh.HinhAnh, 0, file.ContentLength);
-                db.HinhAnhTinhThanhs.Add(hinhAnhTinhThanh);
-                db.SaveChanges();
-                return RedirectToAction("Index");
             }
+            context.HinhAnhTinhThanhs.Add(hinhAnhTinhThanh);
+            context.SaveChanges();
             return View(hinhAnhTinhThanh);
         }
 
