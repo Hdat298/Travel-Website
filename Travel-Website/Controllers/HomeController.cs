@@ -54,5 +54,22 @@ namespace Travel_Website.Controllers
 
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Login(FormCollection f)
+        {
+            Model1 context = new Model1();
+            string sUser = f["txtUser"].ToString();
+            string sPass = f["txtPass"].ToString();
+
+            KhachHang kh = context.KhachHangs.SingleOrDefault(p => p.TenDangNhap == sUser && p.MatKhau == sPass);
+            if (kh != null)
+            {
+                Session["Account"] = kh;
+                return RedirectToAction("Index", "Home");
+            }
+
+            return RedirectToAction("Index","Home");
+        }
     }
 }

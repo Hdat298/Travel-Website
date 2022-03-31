@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Travel_Website.Models
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -25,7 +27,16 @@
         </nav>
         <div class="icons">
             <i class="fas fa-search" id="search-btn"></i>
-            <i class="fas fa-user" id="login-btn"></i>
+            @if (Session["Account"] != null)
+            {
+                KhachHang kh = (KhachHang)Session["Account"];
+                <span>Chào @kh.Ten</span>
+            }
+            else
+            {
+                <i class="fas fa-user" id="login-btn"></i>
+            }
+
         </div>
 
         <form action="" class="search-bar-container">
@@ -38,16 +49,17 @@
     <!--login-form-->
     <div class="login-form-container">
         <i class="fas fa-times" id="form-close"></i>
-        <form action="">
+        @using (Html.BeginForm("Login", "Home"))
+        {
             <h3>Login</h3>
-            <input type="email" class="box" placeholder="Nhập Email"/>
-            <input type="password" class="box" placeholder="Nhập Mật Khẩu"/>
+            <input type="text" name="txtUser" class="box" placeholder="Nhập Email"/>
+            <input type="password" name="txtPass" class="box" placeholder="Nhập Mật Khẩu"/>
             <input type="submit" value="Đăng Nhập" class="btn"/>
             <input type="checkbox" id="remember">
             <label for="remember">Nhớ mật khẩu</label>
             <p>Quên mật khẩu? <a href="#">Nhấn vào đây</a></p>
             <p>chưa có tài khoản? <a>@Html.ActionLink("đăng ký ngay", "Signup", "Home")</a></p>
-        </form>
+        }
     </div>
     <!--end-login-form-->
 
