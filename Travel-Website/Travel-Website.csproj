@@ -157,6 +157,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Resources\adminStyle.css" />
     <Content Include="Areas\Resources\images\ava-img.svg" />
     <Content Include="Areas\Resources\style.css" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -174,6 +175,7 @@
     <Content Include="Areas\Resources\images\adminLog-img.svg" />
     <Content Include="Content\Images\book-img.svg" />
     <Content Include="Content\Images\contact-img.svg" />
+    <Content Include="Content\funcStyle.css" />
     <Content Include="Content\Images\g-1.jpg" />
     <Content Include="Content\Images\g-2.jpg" />
     <Content Include="Content\Images\g-3.jpg" />
@@ -207,6 +209,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\adminScript.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -230,7 +233,11 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Areas\admin\Views\web.config" />
-    <Content Include="Areas\admin\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\admin\Views\Admin\Login.cshtml" />
+    <Content Include="Areas\admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\admin\Views\Shared\AdminLayout.cshtml" />
+    <Content Include="Areas\admin\Views\Admin\dashBoard.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -300,7 +307,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\admin\Data\" />
-    <Folder Include="Areas\admin\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

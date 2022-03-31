@@ -1,0 +1,118 @@
+﻿@*//
+//                       _oo0oo_
+//                      o8888888o
+//                      88" . "88
+//                      (| -_- |)
+//                      0\  =  /0
+//                    ___/`---'\___
+//                  .' \\|     |// '.
+//                 / \\|||  :  |||// \
+//                / _||||| -:- |||||- \
+//               |   | \\\  -  /// |   |
+//               | \_|  ''\---/''  |_/ |
+//               \  .-\__  '-'  ___/-. /
+//             ___'. .'  /--.--\  `. .'___
+//          ."" '<  `.___\_<|>_/___.' >' "".
+//         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+//         \  \ `_.   \_ __\ /__ _/   .-` /  /
+//     =====`-.____`.___ \_____/___.-`___.-'=====
+//                       `=---='
+//
+//
+//     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+//*@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Areas/Resources/adminStyle.css"/>
+</head>
+<body>
+     <div class="container1">
+            <div class="navigation">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <span class="icon"><ion-icon name="airplane-outline"></ion-icon></span>
+                            <span class="title">Brand Name</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("dashBoard","Admin",new { area = "admin" })">
+                            <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                            <span class="title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                            <span class="title">Customers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","Tour",new { area = "" })">
+                            <span class="icon"><ion-icon name="earth-outline"></ion-icon></span>
+                            <span class="title">Tour</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon"><ion-icon name="help-outline"></ion-icon></span>
+                            <span class="title">Help</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                            <span class="title">Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                            <span class="title">Password</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon"><ion-icon name="log-in-outline"></ion-icon></span>
+                            <span class="title">Đăng xuất</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+     <div class="main">
+         <div class="topbar">
+             <div class="toggle">
+                 <ion-icon name="menu-outline"></ion-icon>
+             </div>
+             <!--search-->
+             <div class="search">
+                 <label>
+                     <input type="text" placeholder="tìm kiếm">
+                     <ion-icon name="search-outline"></ion-icon>
+                 </label>
+             </div>
+             <!--img-->
+             <div class="user">
+                 <img width="100px" src="img.jpg">
+             </div>
+         </div>
+         <div>
+             @RenderBody()
+         </div>
+     </div>
+
+
+
+
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    @Scripts.Render("~/Scripts/adminScript.js")
+</body>
+</html>

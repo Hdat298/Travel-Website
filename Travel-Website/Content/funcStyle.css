@@ -1,0 +1,40 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+table {
+    height: 600px;
+    align-items: center;
+}
+
+table .title {
+    text-align: center;
+}
+
+td {
+    padding: 0 15px;
+}
+
+.btn {
+    color: black;
+    font-size: 1.5rem;
+    position: relative;
+    right: -1.2rem;
+}
+
+.btn1 {
+    color: black;
+    font-size: 1.5rem;
+    position: relative;
+    right: -1rem;
+}
+
+.btn2 {
+    color: black;
+    font-size: 1.5rem;
+    position: relative;
+    right: -.35rem;
+}
+

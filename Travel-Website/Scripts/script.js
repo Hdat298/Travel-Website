@@ -1,4 +1,5 @@
-﻿let searchBtn = document.querySelector('#search-btn');
+﻿/*Home*/
+let searchBtn = document.querySelector('#search-btn');
 let searchBar = document.querySelector('.search-bar-container');
 let formBtn = document.querySelector('#login-btn')
 let loginForm = document.querySelector('.login-form-container')
@@ -6,24 +7,8 @@ let formClose = document.querySelector('#form-close')
 let menu = document.querySelector('#menu-bar');
 let navbar = document.querySelector('.navbarr');
 let videoBtn = document.querySelectorAll('.vid-btn');
-
-let inputs = document.querySelectorAll('.input');
-
-function focusFunc() {
-    let parent = this.parentNode.parentNode;
-    parent.classList.add('focus');
-}
-function blurFunc() {
-    let parent = this.parentNode.parentNode;
-    if (this.value == "") {
-        parent.classList.remove('focus');
-    }
-}
-
-inputs.forEach(input => {
-    input.addEventListener('focus', focusFunc);
-    input.addEventListener('blur', blurFunc);
-});
+/**Home-end */
+/*Home*/
 
 window.onscroll = () => {
     searchBtn.classList.remove('fa-times');
@@ -62,9 +47,6 @@ videoBtn.forEach(btn => {
         document.querySelector('#video-slider').src = src;
     });
 });
-
-
-
 
 var swiper = new Swiper(".review-slider", {
     spaceBetween: 140,
@@ -108,3 +90,11 @@ var swiper = new Swiper(".brand-slider", {
         },
     },
 });
+/**Home-End */
+
+
+
+
+
+
+

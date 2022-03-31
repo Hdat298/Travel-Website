@@ -2,69 +2,83 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
-
-<p>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/funcStyle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
+</p>*@
+<table>
+    <tr class="title">
+        <td>
             @Html.DisplayNameFor(model => model.MaTour)
-        </th>
-        <th>
+        </td>
+        <td>
             @Html.DisplayNameFor(model => model.TenTour)
-        </th>
-        <th>
+        </td>
+        <td>
             @Html.DisplayNameFor(model => model.Gia)
-        </th>
-        <th>
+        </td>
+        <td>
             @Html.DisplayNameFor(model => model.NgayKhoiHanh)
-        </th>
-        <th>
+        </td>
+        <td>
             @Html.DisplayNameFor(model => model.NgayKetThuc)
-        </th>
-        <th>
+        </td>
+        <td>
             @Html.DisplayNameFor(model => model.SoCho)
-        </th>
-        <th>
+        </td>
+        @*<td>
             @Html.DisplayNameFor(model => model.NoiDung)
-        </th>
-        <th>
+        </td>*@
+        <td>
             @Html.DisplayNameFor(model => model.MaLoaiTour)
-        </th>
-        <<th>
+        </td>
+        <td>
             @Html.DisplayNameFor(model => model.HinhAnh)
-        </th>
-        <th></th>
+        </td>
+        <td>
+            Chỉnh sửa
+        </td>
+        <td>
+            Chi tiết
+        </td>
+        <td>
+            Xóa
+        </td>
     </tr>
 
 @foreach (var item in Model) {
 <tr>
-    <td>
+    <td style="width: 40px">
         @Html.DisplayFor(modelItem => item.MaTour)
     </td>
-    <td>
+    <td style="width: 200px">
         @Html.DisplayFor(modelItem => item.TenTour)
     </td>
-    <td>
+    <td style="text-align: center; width: 60px">
         @Html.DisplayFor(modelItem => item.Gia)
     </td>
-    <td>
+    <td style="width: 50px">
         @Html.DisplayFor(modelItem => item.NgayKhoiHanh)
     </td>
-    <td>
+    <td style="width: 50px">
         @Html.DisplayFor(modelItem => item.NgayKetThuc)
     </td>
-    <td>
+    <td style="text-align: center; width: 50px">
         @Html.DisplayFor(modelItem => item.SoCho)
     </td>
-    <td>
+    @*<td>
         @Html.DisplayFor(modelItem => item.NoiDung)
-    </td>
-    <td>
+    </td>*@
+    <td style="text-align: center; width: 50px">
         @Html.DisplayFor(modelItem => item.MaLoaiTour)
     </td>
     <td>
@@ -79,11 +93,20 @@
         }
     </td>
     <td>
-        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.ID }) |
-        @Html.ActionLink("Chi tiết", "Details", new { id = item.ID }) |
-        @Html.ActionLink("Xóa", "Delete", new { id = item.ID })
+        <a href="@Url.Action("Edit", new { id = item.ID })" class="fa fa-edit btn"></a>
+        @*@Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.ID })*@
+    </td>
+    <td>
+        <a href="@Url.Action("Details", new { id = item.ID })" class="fa fa-info-circle btn1"></a>
+        @*@Html.ActionLink("Chi tiết", "Details", new { id = item.ID })*@ 
+    </td>
+    <td>
+        <a href="@Url.Action("Delete", new { id = item.ID })" class="fa fa-trash btn2"></a>
+        @*@Html.ActionLink("Xóa", "Delete", new { id = item.ID })*@
     </td>
 </tr>
 }
 
 </table>
+</body>
+</html>
