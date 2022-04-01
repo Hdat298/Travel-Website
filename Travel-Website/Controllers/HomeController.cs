@@ -88,7 +88,8 @@ namespace Travel_Website.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
+        }
         public List<Tour> getspecificTour(int id)
         {
             Model1 context = new Model1();

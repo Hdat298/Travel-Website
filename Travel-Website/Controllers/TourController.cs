@@ -74,5 +74,10 @@ namespace Travel_Website.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public ActionResult tourDetail()
+        {
+            return View();
+        }
     }
 }

@@ -206,6 +206,7 @@
     <Content Include="Content\Images\vid-3.mp4" />
     <Content Include="Content\Images\vid-4.mp4" />
     <Content Include="Content\Images\vid-5.mp4" />
+    <Content Include="Content\tourDetailStyle.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -304,6 +305,7 @@
     <Content Include="Views\KhachHang\Create.cshtml" />
     <Content Include="Views\KhachHang\Edit.cshtml" />
     <Content Include="Views\Home\DatTour.cshtml" />
+    <Content Include="Views\Tour\tourDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
