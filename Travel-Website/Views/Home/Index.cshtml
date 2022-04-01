@@ -1,6 +1,5 @@
 ﻿@using Travel_Website.Models;
 
-
 @{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -127,7 +126,7 @@
                                     <i class="far fa-star"></i>
                                 </div>
                                 <div class="price">@item.Gia vnd<span> 20.000.000vnd</span></div>
-                                <a href="#" class="btn">book now</a>
+                                <a href="#" class="btn" onclick="location.href='@Url.Action("DatTour", "Home", new { id = item.ID })'">book now</a>
                             </div>
                         </div>
                     }
@@ -175,7 +174,7 @@
                                     <i class="far fa-star"></i>
                                 </div>
                                 <div class="price">@item.Gia vnd<span> 20.000.000vnd</span></div>
-                                <a href="#" class="btn">book now</a>
+                                <a href="#" class="btn" onclick="location.href='@Url.Action("DatTour", "Home", new { id = item.ID })'">book now</a>
                             </div>
                         </div>
                     }
@@ -223,7 +222,7 @@
                                     <i class="far fa-star"></i>
                                 </div>
                                 <div class="price">@item.Gia vnd<span> 20.000.000vnd</span></div>
-                                <a href="#" class="btn">book now</a>
+                                <a href="#" class="btn" onclick="location.href='@Url.Action("DatTour", "Home", new { id = item.ID })'">book now</a>
                             </div>
                         </div>
                     }
