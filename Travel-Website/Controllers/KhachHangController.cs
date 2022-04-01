@@ -26,18 +26,45 @@ namespace Travel_Website.Controllers
 
         public ActionResult Create()
         {
-            if (Request.Form.Count > 0)
+            try
             {
-                Model1 context = new Model1();
-                KhachHang KhachHang = new KhachHang();
-                KhachHang.Ten = Request.Form["TenKhachHang"];
-                KhachHang.SDT = Request.Form["SDT"];
-                KhachHang.TenDangNhap = Request.Form["TenDangNhap"];
-                KhachHang.MatKhau = Request.Form["MatKhau"];
+                if (Request.Form.Count > 0)
+                {
+                    Model1 context = new Model1();
+                    KhachHang KhachHang = new KhachHang();
 
-                context.KhachHangs.Add(KhachHang);
-                context.SaveChanges();
-                return RedirectToAction("Index");
+                    if(context.KhachHangs.Any(x=> x.TenDangNhap == KhachHang.TenDangNhap))
+                    {
+                        ViewBag.DuplicateMessage = "Tên đăng nhập đã tồn tại.";
+                        return View("");
+                    }
+
+                    KhachHang.Ten = Request.Form["Ten"];
+                    KhachHang.SDT = Request.Form["SDT"];
+                    KhachHang.TenDangNhap = Request.Form["TenDangNhap"];
+                    KhachHang.MatKhau = Request.Form["MatKhau"];
+
+                    context.KhachHangs.Add(KhachHang);
+                    context.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+            {
+                Exception raise = dbEx;
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        string message = string.Format("{0}:{1}",
+                            validationErrors.Entry.Entity.ToString(),
+                            validationError.ErrorMessage);
+                        // raise a new exception nesting  
+                        // the current instance as InnerException  
+                        raise = new InvalidOperationException(message, raise);
+                    }
+                }
+                throw raise;
             }
             return View();
         }

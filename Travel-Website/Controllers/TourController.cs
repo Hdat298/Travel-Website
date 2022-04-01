@@ -24,13 +24,6 @@ namespace Travel_Website.Controllers
             return View(p);
         }
 
-        //public ActionResult HinhAnhs(int id)
-        //{
-        //    Model1 context = new Model1();
-        //    List<HinhAnhTour> Tours = context.HinhAnhTours.Where(x => x.MaTour == id).ToList();
-        //    return View(Tours);
-        //}
-
         public ActionResult Create()
         {
             if (Request.Form.Count > 0)

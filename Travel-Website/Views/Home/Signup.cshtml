@@ -1,4 +1,5 @@
-﻿
+﻿@model Travel_Website.Models.KhachHang
+
 @{
     ViewBag.Title = "Signup";
     Layout = "~/Views/Shared/Layout2.cshtml";
@@ -31,26 +32,58 @@
             <div class="image">
                 <img src="~/Content/Images/book-img.svg" alt="">
             </div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-            <form action="">
-                <div class="inputBox">
-                    <h3>Họ tên</h3>
-                    <input type="text" placeholder="" />
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                <h3>Họ tên</h3>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Ten, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Ten, "", new { @class = "text-danger" })
                 </div>
-                <div class="inputBox">
-                    <h3>Email</h3>
-                    <input type="text" placeholder="" />
+            </div>
+
+            <div class="form-group">
+                <h3>Số điện thoại</h3>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
                 </div>
-                <div class="inputBox">
-                    <h3>mật khẩu</h3>
-                    <input type="password" />
+            </div>
+
+            <div class="form-group">
+                <h3>Tên đăng nhập</h3>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TenDangNhap, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TenDangNhap, "", new { @class = "text-danger" })
                 </div>
-                <div class="inputBox">
-                    <h3>số điện thoại</h3>
-                    <input type="number" />
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <label class="lable-danger">@ViewBag.DuplicateMessage</label>
                 </div>
-                <input type="submit" class="btn" value="đăng ký" />
-            </form>
+            </div>
+
+            <div class="form-group">
+                <h3>Mật khẩu</h3>
+                <div class="col-md-10">
+                    @Html.PasswordFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Signup" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+            }
         </div>
     </section>
 </body>

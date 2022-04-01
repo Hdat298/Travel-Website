@@ -28,7 +28,7 @@ namespace Travel_Website.Models
         [StringLength(12)]
         public string SDT { get; set; }
 
-        [StringLength(15)]
+        [StringLength(30)]
         public string TenDangNhap { get; set; }
 
         [StringLength(100)]
