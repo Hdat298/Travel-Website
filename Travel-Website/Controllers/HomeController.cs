@@ -87,22 +87,53 @@ namespace Travel_Website.Controllers
                 Session["Account"] = kh;
                 return RedirectToAction("Index", "Home");
             }
+            return RedirectToAction("Index", "Home");
+        }
 
-            return RedirectToAction("Index","Home");
-        public List<Tour> getspecificTour(int id)
+        public List<Tour> GetTours(int id)
         {
             Model1 context = new Model1();
             List<Tour> p = context.Tours.Where(x => x.ID == id).ToList();
             return p;
         }
-
         public ActionResult DatTour(int id)
         {
-            dynamic dy1 = new ExpandoObject();
-            dy1.tourlist = getspecificTour(id);
-            //Model1 context = new Model1();
-            //Tour p = context.Tours.FirstOrDefault(x => x.ID == id);
-            return View(dy1);
+            dynamic dy = new ExpandoObject();
+            dy.Tours = GetTours(id);
+            
+            return View(dy);
         }
+
+        public ActionResult DatTour2(int id)
+        {
+            var userid = Session["Account"] as KhachHang;
+            Model1 context = new Model1();
+            var DatTourId = context.DatTours.SingleOrDefault(p => p.ID == id);
+
+            if (Request.Form.Count > 0)
+            {
+                DatTour tinhThanh = new DatTour
+                {
+                    NgayDat = Convert.ToDateTime(Request.Form["NgayDat"]),
+                    SoCho = int.Parse(Request.Form["SoCho"]),
+                    ThanhTien = int.Parse(Request.Form["ThanhTien"]),
+                    MaTour = int.Parse(Request.Form["MaTour"])
+                };
+
+                context.DatTours.Add(tinhThanh);
+                context.SaveChanges();
+
+                var DatTour = new ChiTietDatTour();
+
+                DatTour.MaDatTour = tinhThanh.ID;
+                DatTour.MaKhachHang = userid.ID;
+                
+                context.ChiTietDatTours.Add(DatTour);
+                context.SaveChanges();
+            }
+                       
+            return View();
+        }
+
     }
 }
