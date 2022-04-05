@@ -5,11 +5,41 @@ using System.Web;
 using System.Web.Mvc;
 using Travel_Website.Models;
 using System.Dynamic;
+using System.Net.Mail;
+using System.Net;
+using System.Data.Entity.Migrations;
+using System.Security.Cryptography;
+using System.Text;
+using MySql.Data.MySqlClient.Memcached;
 
 namespace Travel_Website.Controllers
 {
     public class HomeController : Controller
     {
+        public string transMD5 (string password)
+        {
+            MD5 mh = MD5.Create();
+            //chuyen chuoi thanh byte
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(password);
+            //ma hoa chuoi da chuyen
+            byte[] hash = mh.ComputeHash(inputBytes);
+            //tao doi tuong StringBuilder (lam viec voi kieu du lieu lon)
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("X2"));
+            }
+            return sb.ToString();
+        }
+
+        public string randomPass()
+        {
+            string Numrd_str;
+            Random rd = new Random();
+            Numrd_str = rd.Next(100000, 1000000).ToString();
+            return Numrd_str;
+        }
+
         public ActionResult Index()
         {
             dynamic dy = new ExpandoObject();
@@ -133,6 +163,40 @@ namespace Travel_Website.Controllers
             }
                        
             return View();
+        }
+
+        public ActionResult forgotPassword (string email)
+        {
+            Model1 context = new Model1();
+            string email1 = email;
+            var s = context.KhachHangs.FirstOrDefault(p => p.TenDangNhap == email1);
+            if (s != null)
+            {
+                var mail = new SmtpClient("smtp.gmail.com", 587)
+                {
+                    Credentials = new NetworkCredential("minhtan12374@gmail.com", "Minh@123"),
+                    EnableSsl = true,
+                    UseDefaultCredentials = false
+                };
+                var message = new MailMessage();
+                message.From = new MailAddress("minhtan12374@gmail.com");
+                message.ReplyToList.Add("minhtan12374@gmail.com");
+                message.To.Add(new MailAddress(s.TenDangNhap));
+                message.Subject = "Thông báo về việc thay đổi mật khẩu của DDT Tour";
+                string pass = randomPass();
+                message.Body = "Mật khẩu của bạn đã được reset thành " + pass;
+                s.MatKhau = transMD5(pass);
+                context.KhachHangs.AddOrUpdate(s);
+                context.SaveChanges();
+                mail.Send(message);
+                ViewBag.Message = "Đã gửi mail thành công!!! Vui lòng kiểm tra email";
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewBag.Message = "Địa chỉ Email không chính xác";
+                return RedirectToAction("Index","Home");
+            }
         }
 
     }

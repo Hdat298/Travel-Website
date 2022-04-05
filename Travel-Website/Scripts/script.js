@@ -7,6 +7,20 @@ let formClose = document.querySelector('#form-close')
 let menu = document.querySelector('#menu-bar');
 let navbar = document.querySelector('.navbarr');
 let videoBtn = document.querySelectorAll('.vid-btn');
+let forgotPassBtn = document.querySelector('.forgotPassword')
+let forgotPassForm = document.querySelector('.forgotPass-form-container')
+let formClose1 = document.querySelector('#form-close1')
+let userMenu = document.querySelector('.profile');
+let toggleMenu = document.querySelector('.menu');
+if (userMenu != null) {
+    userMenu.addEventListener('click', () => {
+        toggleMenu.classList.toggle('active');
+    });
+}
+else {
+    userMenu = null;
+}
+//let toggleMenu = document.querySelector('.menu')
 /**Home-end */
 /*Home*/
 
@@ -17,6 +31,15 @@ window.onscroll = () => {
     menu.classList.remove('active');
     loginForm.classList.remove('active');
 }
+
+
+forgotPassBtn.addEventListener('click', () => {
+    forgotPassForm.classList.add('active');
+});
+
+formClose1.addEventListener('click', () => {
+    forgotPassForm.classList.remove('active');
+});
 
 searchBtn.addEventListener('click', () => {
     searchBtn.classList.toggle('fa-times');
