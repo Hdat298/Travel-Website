@@ -5,82 +5,86 @@
     Layout = "~/Areas/admin/Views/Shared/AdminLayout.cshtml";
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="~/Content/tourDetailStyle.css" />
-</head>
-<body>
-    <div class="tour-container">
-        <dl class="dl-horizontal">
-            <dt>
-                Mã Tour
-            </dt>
+<h2>Details</h2>
 
-            <dd>
-                @Html.DisplayFor(model => model.MaTour)
-            </dd>
+<div class="tour-container">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaTour)
+        </dt>
 
-            <dt>
-                Tên Tour
-            </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaTour)
+        </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.TenTour)
-            </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TenTour)
+        </dt>
 
-            <dt>
-                Giá
-            </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TenTour)
+        </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Gia)
-            </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Gia)
+        </dt>
 
-            <dt>
-                Ngày Khởi Hành
-            </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Gia)
+        </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.NgayKhoiHanh)
-            </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayKhoiHanh)
+        </dt>
 
-            <dt>
-                Ngày Kết Thúc
-            </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NgayKhoiHanh)
+        </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.NgayKetThuc)
-            </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayKetThuc)
+        </dt>
 
-            <dt>
-                Số Chỗ
-            </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NgayKetThuc)
+        </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.SoCho)
-            </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoCho)
+        </dt>
 
-            <dt>
-                Nội Dung
-            </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoCho)
+        </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.NoiDung)
-            </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NoiDung)
+        </dt>
 
-            <dt>
-                Mã Loại Tour
-            </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NoiDung)
+        </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.MaLoaiTour)
-            </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiTour.TenLoaiTour)
+        </dt>
 
-        </dl>
-    </div>
-</body>
-</html>
+        <dd>
+            @Html.DisplayFor(model => model.LoaiTour.TenLoaiTour)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HinhAnh)
+        </dt>
+
+        <dd>
+            @{
+                var imgsrc = "";
+                var base64 = Convert.ToBase64String(Model.HinhAnh.ToArray());
+                imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                <img src='@imgsrc' style="max-width:500px;max-height:500px" />
+            }
+        </dd>
 
 
     <div>
