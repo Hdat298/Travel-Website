@@ -217,7 +217,10 @@
     <Content Include="Areas\Resources\images\adminLog-img.svg" />
     <Content Include="Content\Images\book-img.svg" />
     <Content Include="Content\Images\contact-img.svg" />
-    <Content Include="Content\funcStyle.css" />
+    <Content Include="Content\Images\edit-tour-img.svg" />
+    <Content Include="Content\tourDetailStyle.css" />
+    <Content Include="Content\tourEditStyle.css" />
+    <Content Include="Content\tourIndexStyle.css" />
     <Content Include="Content\Images\g-1.jpg" />
     <Content Include="Content\Images\g-2.jpg" />
     <Content Include="Content\Images\g-3.jpg" />
@@ -251,7 +254,7 @@
     <Content Include="Content\Images\vid-3.mp4" />
     <Content Include="Content\Images\vid-4.mp4" />
     <Content Include="Content\Images\vid-5.mp4" />
-    <Content Include="Content\tourDetailStyle.css" />
+    <Content Include="Content\tourDescriptionStyle.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />

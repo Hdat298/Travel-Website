@@ -1,53 +1,19 @@
-﻿* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+﻿.tour-container {
+    position: absolute;
+    top: 7rem;
+    left: 4rem;
+    width: 80rem;
+    height: 40rem;
+    flex: 1 1 40rem;
+    padding: 2rem;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.1);
+    border-radius: .5rem;
 }
 
-html {
-    font-family: 'Lato', sans-serif;
-}
-
-h1 {
-    color: rgb(196, 79, 151);
-    font-weight: 900;
-    font-size: 80px;
-}
-
-h2 {
-    color: rgb(255, 136, 158);
+.tour-container dt {
     font-weight: bold;
-    font-size: 50px;
 }
 
-p {
-    font-weight: bold;
-    font-size: 18px;
-}
-
-#HyoukaBK {
-    display: block;
-    margin: 0 auto;
-}
-
-.container1 {
-    width: 1140px;
-    margin: 0 auto;
-    padding: 0 30px;
-}
-
-.content1 {
-    width: 100%;
-}
-
-.date {
-    color: rgb(255, 136, 158);
-    font-weight: lighter;
-    font-size: 40px;
-}
-
-.clearfix::after {
-    content: "";
-    display: table;
-    clear: both;
+.tour-container dd {
+    margin: 0 0 1rem 2rem;
 }

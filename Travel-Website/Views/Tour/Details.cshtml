@@ -5,76 +5,83 @@
     Layout = "~/Areas/admin/Views/Shared/AdminLayout.cshtml";
 }
 
-<h2>Details</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/tourDetailStyle.css" />
+</head>
+<body>
+    <div class="tour-container">
+        <dl class="dl-horizontal">
+            <dt>
+                Mã Tour
+            </dt>
 
-<div class="tour-container">
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MaTour)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MaTour)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MaTour)
-        </dd>
+            <dt>
+                Tên Tour
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TenTour)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TenTour)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TenTour)
-        </dd>
+            <dt>
+                Giá
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Gia)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Gia)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Gia)
-        </dd>
+            <dt>
+                Ngày Khởi Hành
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NgayKhoiHanh)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NgayKhoiHanh)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.NgayKhoiHanh)
-        </dd>
+            <dt>
+                Ngày Kết Thúc
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NgayKetThuc)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NgayKetThuc)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.NgayKetThuc)
-        </dd>
+            <dt>
+                Số Chỗ
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SoCho)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SoCho)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SoCho)
-        </dd>
+            <dt>
+                Nội Dung
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NoiDung)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NoiDung)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.NoiDung)
-        </dd>
+            <dt>
+                Mã Loại Tour
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MaLoaiTour)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MaLoaiTour)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MaLoaiTour)
-        </dd>
+        </dl>
+    </div>
+</body>
+</html>
 
-    </dl>
-</div>
 
     <div>
         <hr />
