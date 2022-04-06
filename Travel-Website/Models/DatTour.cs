@@ -28,15 +28,13 @@ namespace Travel_Website.Models
 
         public int? ThanhTien { get; set; }
 
-        public int? GiamGia { get; set; }
-
-        public int? ThanhToan { get; set; }
-
         public int? MaTour { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietDatTour> ChiTietDatTours { get; set; }
 
         public virtual Tour Tour { get; set; }
+
+        public List<Tour> ListTour = new List<Tour>();
     }
 }

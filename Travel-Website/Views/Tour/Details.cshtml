@@ -65,11 +65,24 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.MaLoaiTour)
+            @Html.DisplayNameFor(model => model.LoaiTour.TenLoaiTour)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.MaLoaiTour)
+            @Html.DisplayFor(model => model.LoaiTour.TenLoaiTour)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HinhAnh)
+        </dt>
+
+        <dd>
+            @{
+                var imgsrc = "";
+                var base64 = Convert.ToBase64String(Model.HinhAnh.ToArray());
+                imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                <img src='@imgsrc' style="max-width:500px;max-height:500px" />
+            }
         </dd>
 
     </dl>
