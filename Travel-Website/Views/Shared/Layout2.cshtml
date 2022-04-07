@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Travel_Website.Models
+
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -18,8 +21,29 @@
         </nav>
 
         <div class="icons">
-            <i class="fas fa-search" id="search-btn"></i>
-            <i class="fas fa-user" id="login-btn"></i>
+            @if (Session["Account"] != null)
+            {
+                KhachHang kh = (KhachHang)Session["Account"];
+                <div class="action">
+                    <div class="profile">
+                        Hello @kh.Ten
+                    </div>
+                    <div class="menu">
+                        <h3>Hành Trình<br> <span>DDT Travel</span> </h3>
+                        <ul>
+                            <li><img src="~/Content/Images/menu-user-1.png"><a href="#">Thônn tin</a></li>
+                            <li><img src="~/Content/Images/menu-user-2.png"><a href="#">Tour đã đặt</a></li>
+                            <li><img src="~/Content/Images/menu-user-3.png"><a href="#">Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            }
+            else
+            {
+                <i class="fas fa-user" id="login-btn"></i>
+            }
+
         </div>
 
         <form action="" class="search-bar-container">
