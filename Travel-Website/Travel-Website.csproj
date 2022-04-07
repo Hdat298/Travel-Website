@@ -183,6 +183,7 @@
     <Compile Include="Controllers\LoaiTourController.cs" />
     <Compile Include="Controllers\TinhThanhController.cs" />
     <Compile Include="Controllers\TourController.cs" />
+    <Compile Include="Controllers\ViewKhachHangController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -357,6 +358,9 @@
     <Content Include="Views\DatTour\Index.cshtml" />
     <Content Include="Views\DatTour\Create.cshtml" />
     <Content Include="Views\Home\DatTour2.cshtml" />
+    <Content Include="Views\ViewKhachHang\ThongTinKhachhHang.cshtml" />
+    <Content Include="Views\ViewKhachHang\Edit.cshtml" />
+    <Content Include="Views\ViewKhachHang\ThongTinTour.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

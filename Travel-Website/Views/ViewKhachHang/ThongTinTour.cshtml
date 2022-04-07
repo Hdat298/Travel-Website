@@ -1,0 +1,43 @@
+﻿@using Travel_Website.Models;
+@model dynamic
+
+@{
+    ViewBag.Title = "ThongTinTour";
+    Layout = null;
+}
+
+<h2>ThongTinTour</h2>
+
+<div>
+    <hr />
+    <table>
+        <tr>
+            <th>Tên khách hàng</th>
+            <th>Tour đã đặt</th>
+            <th>Số chỗ</th>
+            <th>Thành tiền</th>
+        </tr>
+        @{var userid = Session["Account"] as KhachHang; }
+        @{Model1 context = new Model1();}
+        @{List<DatTour> t = context.DatTours.ToList(); }
+        @foreach (ChiTietDatTour ctdt in Model.chitietdattourlist)
+        {
+            foreach (var item in t)
+            {
+                if (ctdt.MaDatTour == item.ID)
+                {
+                    <tr>
+                        <td>@userid.Ten</td>
+                        <td>@item.Tour.TenTour</td>
+                        <td>@item.SoCho</td>
+                        <td>@item.ThanhTien</td>
+                    </tr>
+                }
+            }
+        }
+    </table>
+
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index" , "Home")
+</p>

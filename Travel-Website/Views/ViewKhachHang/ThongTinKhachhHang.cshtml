@@ -1,23 +1,16 @@
 ﻿@model Travel_Website.Models.KhachHang
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "ThongTinKhachhHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>ThongTinKhachhHang</h2>
 
 <div>
     <h4>KhachHang</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MaKhachHang)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MaKhachHang)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Ten)
         </dt>
@@ -53,5 +46,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Chỉnh sửa thông tin cá nhân", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Về trang chủ", "Index" , "Home")
 </p>

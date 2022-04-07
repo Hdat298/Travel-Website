@@ -16,7 +16,7 @@
         <a href="#" class="logo"><span>DDT </span>Travel</a>
 
         <nav class="navbarr">
-            <a href="#home">trang chủ</a>
+            <a href="@Url.Action("Index", "Home")">trang chủ</a>
             <a href="#book">đặt tour</a>
             <a href="#tours">tours</a>
             <a href="#services">dịch vụ</a>
@@ -37,8 +37,8 @@
                     <div class="menu">
                         <h3>Hành Trình<br> <span>DDT Travel</span> </h3>
                         <ul>
-                            <li><img src="~/Content/Images/menu-user-1.png"><a href="#">Thônn tin</a></li>
-                            <li><img src="~/Content/Images/menu-user-2.png"><a href="#">Tour đã đặt</a></li>
+                            <li><img src="~/Content/Images/menu-user-1.png"><a href="@Url.Action("ThongTinKhachhHang", "ViewKhachHang")">Thông tin</a></li>
+                            <li><img src="~/Content/Images/menu-user-2.png"><a href="@Url.Action("ThongTinTour", "ViewKhachHang")">Tour đã đặt</a></li>
                             <li><img src="~/Content/Images/menu-user-3.png"><a href="#">Đăng xuất</a></li>
                         </ul>
                     </div>
@@ -96,7 +96,7 @@
             <div class="row text-center padding">
                 <h1 class="col-12 heading">
                     <span>k</span>
-                    <span>ê</span>
+                    <span>ế</span>
                     <span>t</span>
                     <span class="space"></span>
                     <span>n</span>
