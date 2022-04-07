@@ -26,34 +26,16 @@ namespace Travel_Website.Controllers
 
         public ActionResult Create()
         {
-            Tour Tour = new Tour();
-            Model1 context = new Model1();
-            Tour.ListLoaiTour = context.LoaiTours.ToList();
-            return View(Tour);
-        }
-
-        [HttpPost]
-        public ActionResult Create(Tour Tour, HttpPostedFileBase file)
-        {
-            Model1 context = new Model1();
-            Tour.ListLoaiTour = context.LoaiTours.ToList();
-
             if (Request.Form.Count > 0)
             {
-                
+                Model1 context = new Model1();
+                Tour Tour = new Tour();
                 Tour.TenTour = Request.Form["TenTour"];
                 Tour.Gia = int.Parse(Request.Form["Gia"]);
-                Tour.NgayKhoiHanh = Convert.ToDateTime(Request.Form["NgayKhoiHanh"], System.Globalization.CultureInfo.GetCultureInfo("hi-IN").DateTimeFormat);
-                Tour.NgayKetThuc = Convert.ToDateTime(Request.Form["NgayKetThuc"], System.Globalization.CultureInfo.GetCultureInfo("hi-IN").DateTimeFormat);
+                Tour.NgayKhoiHanh = Convert.ToDateTime(Request.Form["NgayKhoiHanh"]);
+                Tour.NgayKetThuc = Convert.ToDateTime(Request.Form["NgayKetThuc"]);
                 Tour.SoCho = int.Parse(Request.Form["SoCho"]);
-                Tour.NoiDung = Request.Form["NoiDung"];
-                Tour.MaLoaiTour = int.Parse(Request.Form["MaLoaiTour"]);
-
-                if (file != null)
-                {
-                    Tour.HinhAnh = new byte[file.ContentLength];
-                    file.InputStream.Read(Tour.HinhAnh, 0, file.ContentLength);
-                }
+                Tour.NoiDung = Request.Form["NoiDung"]; 
 
                 context.Tours.Add(Tour);
                 context.SaveChanges();
@@ -66,35 +48,16 @@ namespace Travel_Website.Controllers
         {
             Model1 context = new Model1();
             Tour Tour = context.Tours.FirstOrDefault(x => x.ID == id);
-            Tour.ListLoaiTour = context.LoaiTours.ToList();
-            return View(Tour);
-        }
-
-        [HttpPost]
-        public ActionResult Edit(int id, HttpPostedFileBase file)
-        {
-            Model1 context = new Model1();
-            Tour Tour = context.Tours.FirstOrDefault(x => x.ID == id);
-            Tour.ListLoaiTour = context.LoaiTours.ToList();
-
             if (Request.Form.Count == 0)
             {
                 return View(Tour);
             }
-
             Tour.TenTour = Request.Form["TenTour"];
             Tour.Gia = int.Parse(Request.Form["Gia"]);
-            Tour.NgayKhoiHanh = Convert.ToDateTime(Request.Form["NgayKhoiHanh"], System.Globalization.CultureInfo.GetCultureInfo("hi-IN").DateTimeFormat);
-            Tour.NgayKetThuc = Convert.ToDateTime(Request.Form["NgayKetThuc"], System.Globalization.CultureInfo.GetCultureInfo("hi-IN").DateTimeFormat);
+            Tour.NgayKhoiHanh = Convert.ToDateTime(Request.Form["NgayKhoiHanh"]);
+            Tour.NgayKetThuc = Convert.ToDateTime(Request.Form["NgayKetThuc"]);
             Tour.SoCho = int.Parse(Request.Form["SoCho"]);
             Tour.NoiDung = Request.Form["NoiDung"];
-            Tour.MaLoaiTour = int.Parse(Request.Form["MaLoaiTour"]);
-
-            if (file != null)
-            {
-                Tour.HinhAnh = new byte[file.ContentLength];
-                file.InputStream.Read(Tour.HinhAnh, 0, file.ContentLength);
-            }
 
             context.SaveChanges();
             return RedirectToAction("Index");

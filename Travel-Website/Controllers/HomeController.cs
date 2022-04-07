@@ -138,23 +138,24 @@ namespace Travel_Website.Controllers
         {
             var userid = Session["Account"] as KhachHang;
             Model1 context = new Model1();
-            var Tour = context.Tours.SingleOrDefault(p => p.ID == id);
+            var DatTourId = context.DatTours.SingleOrDefault(p => p.ID == id);
 
             if (Request.Form.Count > 0)
             {
-                DatTour tinhthanh = new DatTour();
+                DatTour tinhThanh = new DatTour
+                {
+                    NgayDat = Convert.ToDateTime(Request.Form["NgayDat"]),
+                    SoCho = int.Parse(Request.Form["SoCho"]),
+                    ThanhTien = int.Parse(Request.Form["ThanhTien"]),
+                    MaTour = int.Parse(Request.Form["MaTour"])
+                };
 
-                tinhthanh.NgayDat = DateTime.Now;
-                tinhthanh.SoCho = int.Parse(Request.Form["SoCho"]);
-                tinhthanh.ThanhTien = Tour.Gia * tinhthanh.SoCho;
-                tinhthanh.MaTour = id;
-                
-                context.DatTours.Add(tinhthanh);
+                context.DatTours.Add(tinhThanh);
                 context.SaveChanges();
 
                 var DatTour = new ChiTietDatTour();
 
-                DatTour.MaDatTour = tinhthanh.ID;
+                DatTour.MaDatTour = tinhThanh.ID;
                 DatTour.MaKhachHang = userid.ID;
                 
                 context.ChiTietDatTours.Add(DatTour);
