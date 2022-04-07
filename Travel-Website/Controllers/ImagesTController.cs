@@ -27,49 +27,59 @@ namespace Travel_Website.Controllers
         }
         public ActionResult Create()
         {
-            HinhAnhTinhThanh context = new HinhAnhTinhThanh();
-            return View(context);
+            HinhAnhTinhThanh hinhanhtinhthanh = new HinhAnhTinhThanh();
+            Model1 context = new Model1();
+            hinhanhtinhthanh.ListTinhThanh = context.TinhThanhs.ToList();
+            return View(hinhanhtinhthanh);
         }
         [HttpPost]
         public ActionResult Create(HinhAnhTinhThanh hinhAnhTinhThanh, HttpPostedFileBase file)
         {
             Model1 context = new Model1();
-
-            hinhAnhTinhThanh.MaTinhThanh = int.Parse(Request.Form["MaTinhThanh"]);
             hinhAnhTinhThanh.MoTa = Request.Form["Mota"];
+            hinhAnhTinhThanh.MaTinhThanh = int.Parse(Request.Form["MaTinhThanh"]);
 
-            if(file != null)
+            if (file != null)
             {
                 hinhAnhTinhThanh.HinhAnh = new byte[file.ContentLength];
                 file.InputStream.Read(hinhAnhTinhThanh.HinhAnh, 0, file.ContentLength);
             }
+
             context.HinhAnhTinhThanhs.Add(hinhAnhTinhThanh);
             context.SaveChanges();
-            return View(hinhAnhTinhThanh);
+            return RedirectToAction("Index");
         }
 
-        //public ActionResult Edit(int id)
-        //{
-        //    System.Text.UTF8Encoding encoding = new System.Text.UTF8Encoding();
-        //    Model1 context = new Model1();
-        //    HinhAnhTinhThanh hinhAnh = context.HinhAnhTinhThanhs.FirstOrDefault(x => x.ID == id);
-        //    if (Request.Form.Count == 0)
-        //    {
-        //        return View(hinhAnh);
-        //    }
-        //    hinhAnh.MaTinhThanh = int.Parse(Request.Form["MaTinhThanh"]);
-        //    hinhAnh.MoTa = Request.Form["MoTa"];
-        //    HttpPostedFileBase file = Request.Files["HinhAnh"];
-        //        if (file != null && file.FileName!= "")
-        //        {
-        //            string serverPath = HttpContext.Server.MapPath("E:/C#/TH_Web/Đồ án web/Travel-Website/Travel-Website/Content/Images");
-        //            string filepath = serverPath + "/" + file.FileName;
-        //            file.SaveAs(filepath);
-        //            hinhAnh.HinhAnh = new System.Data.Linq.Binary(encoding.GetBytes(file.FileName));
-        //        }
-        //        context.SubmitChanges();
-        //        return RedirectToAction("Index");
-        //}
+        public ActionResult Edit(int id)
+        {        
+            Model1 context = new Model1();
+            HinhAnhTinhThanh hinhanhtinhthanh = context.HinhAnhTinhThanhs.FirstOrDefault(x => x.ID == id);
+            hinhanhtinhthanh.ListTinhThanh = context.TinhThanhs.ToList();
+            return View(hinhanhtinhthanh);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(int id, HttpPostedFileBase file)
+        {
+            Model1 context = new Model1();
+            HinhAnhTinhThanh hinhAnhTinhThanh = context.HinhAnhTinhThanhs.FirstOrDefault(x => x.ID == id);
+
+            if (Request.Form.Count == 0)
+            {
+                return View(hinhAnhTinhThanh);
+            }
+
+            hinhAnhTinhThanh.MoTa = Request.Form["MoTa"];
+            hinhAnhTinhThanh.MaTinhThanh = int.Parse(Request.Form["MaTinhThanh"]);
+
+            if (file != null)
+            {
+                hinhAnhTinhThanh.HinhAnh = new byte[file.ContentLength];
+                file.InputStream.Read(hinhAnhTinhThanh.HinhAnh, 0, file.ContentLength);
+            }
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
         public ActionResult Delete(int id)
         {

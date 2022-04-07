@@ -24,5 +24,7 @@ namespace Travel_Website.Models
         public byte[] HinhAnh { get; set; }
 
         public virtual TinhThanh TinhThanh { get; set; }
+
+        public List<TinhThanh> ListTinhThanh = new List<TinhThanh>();
     }
 }

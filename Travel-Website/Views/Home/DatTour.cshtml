@@ -80,13 +80,18 @@
                 else
                 {
                     <a href="#" class="btn" onclick="location.href='@Url.Action("Index", "Home", new { id = item.ID })'">Đặt tour</a>
-                }
-            }
+                    <script>
+                        $(document).ready(function () {
+                                alert('Vui lòng đăng nhập');
+                        });
+                        </script>
+                                    }
+                                }
 
-        </div>
-        </section>
-    </body>
-</html>
+                            </div>
+                            </section >
+                        </body >
+</html >
 
 
 
