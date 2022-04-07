@@ -73,10 +73,12 @@ namespace Travel_Website.Controllers
         {
             Model1 context = new Model1();
             KhachHang KhachHang = context.KhachHangs.FirstOrDefault(x => x.ID == id);
+
             if (Request.Form.Count == 0)
             {
                 return View(KhachHang);
             }
+
             KhachHang.Ten = Request.Form["TenKhachHang"];
             KhachHang.SDT = Request.Form["SDT"];
             KhachHang.TenDangNhap = Request.Form["TenDangNhap"];
