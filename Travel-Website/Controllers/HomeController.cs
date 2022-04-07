@@ -152,6 +152,8 @@ namespace Travel_Website.Controllers
                 context.DatTours.Add(tinhthanh);
                 context.SaveChanges();
 
+                ViewBag.ThanhTien = tinhthanh.ThanhTien;
+
                 var DatTour = new ChiTietDatTour();
 
                 DatTour.MaDatTour = tinhthanh.ID;
@@ -159,8 +161,7 @@ namespace Travel_Website.Controllers
                 
                 context.ChiTietDatTours.Add(DatTour);
                 context.SaveChanges();
-            }
-                       
+            }                     
             return View();
         }
 

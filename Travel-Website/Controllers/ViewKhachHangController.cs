@@ -78,7 +78,7 @@ namespace Travel_Website.Controllers
         public List<ChiTietDatTour> getChiTietDatTour(int id)
         {
             Model1 context = new Model1();
-            List<ChiTietDatTour> chitietdattour = context.ChiTietDatTours.Where(x => x.ID == id).ToList();
+            List<ChiTietDatTour> chitietdattour = context.ChiTietDatTours.Where(x => x.MaKhachHang == id).ToList();
             return chitietdattour;
         }
     }
