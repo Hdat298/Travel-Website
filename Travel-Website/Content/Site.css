@@ -459,6 +459,10 @@ hr.light-100 {
     html {
         font-size: 55%;
     }
+
+    .book1 .row .image img {
+        width: 50%;
+    }
 }
 
 @media (max-width:991px) {
@@ -468,6 +472,10 @@ hr.light-100 {
 
     section {
         padding: 2rem;
+    }
+
+    .book1 .row .image img {
+        width: 50%;
     }
 }
 
@@ -491,6 +499,10 @@ hr.light-100 {
         padding: 1.5rem;
         margin: 1.5rem 0;
         background: #222;
+    }
+
+    .book1 .row .image img {
+        width: 30%;
     }
 }
 
@@ -642,10 +654,14 @@ section {
     right: 50rem;
 }
 
+.book1 .row .book-container dd {
+    width: 20rem;
+}
+
 .book1 .row .book-btn {
     position: absolute;
     right: 50rem;
-    top: 85rem;
+    top: 95rem;
 }
 /*book1-section-end*/
 

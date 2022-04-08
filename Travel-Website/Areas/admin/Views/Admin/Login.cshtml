@@ -7,7 +7,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="~/Areas/Resources/style.css"/>
+    <link rel="stylesheet" href="~/Areas/Resources/style.css" />
 </head>
 <body>
     <div class="container">
@@ -15,32 +15,33 @@
             <img src="~/Areas/Resources/images/adminLog-img.svg" />
         </div>
         <div class="login-container">
-            <form>
+            <form method="post" action="/admin/Admin/Login">
                 <img class="avatar" src="~/Areas/Resources/images/ava-img.svg" />
-                <h2>Login</h2>
-                <div class="input-div one">
-                    <div class="i">
-                        <i class="fas fa-user"></i>
+                    <h2>Login</h2>
+                    <div class="input-div one">
+                        <div class="i">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h5>Tên đăng nhập</h5>
+                            <input name="userName" class="input" type="text" />
+                        </div>
                     </div>
-                    <div>
-                        <h5>Tên đăng nhập</h5>
-                        <input class="input" type="text" />
-                    </div>
-                </div>
 
-                <div class="input-div two">
-                    <div class="i">
-                        <i class="fas fa-lock"></i>
+                    <div class="input-div two">
+                        <div class="i">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div>
+                            <h5>Mật khẩu</h5>
+                            <input name="passWord" class="input" type="password" />
+                        </div>
                     </div>
-                    <div>
-                        <h5>Mật khẩu</h5>
-                        <input class="input" type="password" />
-                    </div>
-                </div>
-                <a href="#">Quên mật khẩu?</a>
-                <input type="submit" class="btn" value="Đăng nhập" />
+                    @*<a href="#">Quên mật khẩu?</a>*@
+                    <input type="submit" class="btn" value="Đăng nhập" />
             </form>
         </div>
+        
     </div>
 
 
@@ -51,3 +52,4 @@
     @Scripts.Render("~/Scripts/adminScript.js")
 </body>
 </html>
+

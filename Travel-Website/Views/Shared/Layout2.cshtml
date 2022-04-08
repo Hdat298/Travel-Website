@@ -29,11 +29,11 @@
                         Hello @kh.Ten
                     </div>
                     <div class="menu">
-                        <h3>Hành Trình<br> <span>DDT Travel</span> </h3>
+                        <h3>Menu<br> <span>DDT Travel</span> </h3>
                         <ul>
-                            <li><img src="~/Content/Images/menu-user-1.png"><a href="#">Thônn tin</a></li>
-                            <li><img src="~/Content/Images/menu-user-2.png"><a href="#">Tour đã đặt</a></li>
-                            <li><img src="~/Content/Images/menu-user-3.png"><a href="#">Đăng xuất</a></li>
+                            <li><img src="~/Content/Images/menu-user-1.png"><a href="@Url.Action("ThongTinKhachhHang", "ViewKhachHang")">Thông tin</a></li>
+                            <li><img src="~/Content/Images/menu-user-2.png"><a href="@Url.Action("ThongTinTour", "ViewKhachHang")">Tour đã đặt</a></li>
+                            <li><img src="~/Content/Images/menu-user-3.png"><a href="@Url.Action("Logout", "Home")">Đăng xuất</a></li>
                         </ul>
                     </div>
                 </div>
@@ -46,10 +46,11 @@
 
         </div>
 
-        <form action="" class="search-bar-container">
-            <input type="search" id="search-bar" placeholder="tìm kiếm..." />
-            <label for="search-bar" class="fas fa-search"></label>
-        </form>
+        @using (Html.BeginForm("getKeyWord", "SearchTour", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "search-bar-container" }))
+        {
+            <input name="keyword" type="search" id="search-bar" placeholder="nhập địa điểm..." />
+            <input type="submit" for="search-bar" class="fas fa-search" />
+        }
     </header>
     <!--end-header-section-->
     <!--login-form-->

@@ -91,6 +91,7 @@
             <h1 class="heading">
                 <span>TOURS NGHỈ DƯỠNG</span>
             </h1>
+            <div class="btn">Xem Thêm</div>
             <div class="box-container">
                 @foreach (Tour item in Model.tourlist)
                 {
@@ -105,9 +106,9 @@
                                     var base64 = Convert.ToBase64String(item.HinhAnh.ToArray());
                                     imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
                                 }
-                                <img src='@imgsrc' />
+                                
                             }
-
+                            <img src='@imgsrc'/>
                             <div class="content">
                                 <h3>
                                     <i class="fas fa-map-marker-alt">
@@ -138,6 +139,9 @@
             <h1 class="heading">
                 <span>TOURS SINH THÁI</span>
             </h1>
+            <div class="btn">
+                Xem Thêm
+            </div>
             <div class="box-container">
                 @foreach (Tour item in Model.tourlist)
                 {
@@ -185,6 +189,7 @@
             <h1 class="heading">
                 <span>TOURS VĂN HÓA - LỊCH SỬ</span>
             </h1>
+            <div class="btn">Xem Thêm</div>
             <div class="box-container">
                 @foreach (Tour item in Model.tourlist)
                 {

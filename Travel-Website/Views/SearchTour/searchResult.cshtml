@@ -1,0 +1,66 @@
+﻿@using Travel_Website.Models;
+@model IEnumerable<Tour>
+
+@{
+    ViewBag.Title = "searchResult";
+    Layout = "~/Views/Shared/Layout2.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - DDT Group - Travel Around The World</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <h2>searchResult</h2>
+    <section class="tours">
+        <div>
+            @if (Model.Count() == 0)
+            {
+                <h1>Không tìm thấy tour.</h1>
+            }
+            <div class="box-container">
+                @foreach (Tour item in Model)
+                {
+                    <div class="box">
+                        @{
+                            var imgsrc = "";
+                            if (item.HinhAnh != null)
+                            {
+                                var base64 = Convert.ToBase64String(item.HinhAnh.ToArray());
+                                imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                            }
+
+                        }
+                        <img src='@imgsrc' />
+                        <div class="content">
+                            <h3>
+                                <i class="fas fa-map-marker-alt">
+                                    @item.TenTour
+                                </i>
+                            </h3>
+                            <p>
+                                @item.NoiDung
+                            </p>
+                            <div class="starts">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <div class="price">@item.Gia vnd<span> 20.000.000vnd</span></div>
+                            <a href="#" class="btn" onclick="location.href='@Url.Action("DatTour", "Home", new { id = item.ID })'">book now</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
