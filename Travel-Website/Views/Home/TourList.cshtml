@@ -1,0 +1,75 @@
+﻿@using Travel_Website.Models;
+@using PagedList;
+@using PagedList.Mvc;
+
+@model PagedList.IPagedList<Travel_Website.Models.Tour>
+
+@{
+    ViewBag.Title = "TourList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - DDT Group - Travel Around The World</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet"
+          href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div class="tour-container">
+        <h1 class="heading">
+            <span>TOURS </span>
+        </h1>
+        <div class="box-container">
+            @foreach (Tour item in Model)
+            {
+                <div class="box">
+                    @{
+                        var imgsrc = "";
+                        if (item.HinhAnh != null)
+                        {
+                            var base64 = Convert.ToBase64String(item.HinhAnh.ToArray());
+                            imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                        }
+                        <img src='@imgsrc' />
+                    }
+
+                    <div class="content">
+                        <h3>
+                            <i class="fas fa-map-marker-alt">
+                                @item.TenTour
+                            </i>
+                        </h3>
+                        <p>
+                            @item.NoiDung
+                        </p>
+                        <div class="starts">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="price">@item.Gia vnd<span> 20.000.000vnd</span></div>
+                        <a href="#" class="btn" onclick="location.href='@Url.Action("DatTour", "Home", new { id = item.ID })'">book now</a>
+                        <a href="#" class="btn" onclick="location.href='@Url.Action("TourDetails", "Home", new { id = item.ID })'">Chi tiết tour</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+
+    <br />
+    Page @(Model.PageCount <Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount)
+
+    <div>
+        @Html.PagedListPager(Model, page => Url.Action("TourList", new { page = page }))
+    </div>
+
+    @Scripts.Render("~/Scripts/swiper-bundle.min.js")
+    @Scripts.Render("~/Scripts/script.js")
+</body>

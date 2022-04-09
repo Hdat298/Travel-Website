@@ -92,11 +92,11 @@
                 <span>TOURS NGHỈ DƯỠNG</span>
             </h1>
             <div class="box-container">
+                @{int i = 0;}
                 @foreach (Tour item in Model.tourlist)
-                {
-                    if (item.MaLoaiTour == 1)
+                {              
+                    if (item.MaLoaiTour == 1 && i < 2)
                     {
-
                         <div class="box">
                             @{
                                 var imgsrc = "";
@@ -126,9 +126,13 @@
                                 </div>
                                 <div class="price">@item.Gia vnd<span> 20.000.000vnd</span></div>
                                 <a href="#" class="btn" onclick="location.href='@Url.Action("DatTour", "Home", new { id = item.ID })'">book now</a>
+                                <a href="#" class="btn" onclick="location.href='@Url.Action("TourDetails", "Home", new { id = item.ID })'">Chi tiết tour</a>
                             </div>
-                        </div>
+                            <a href="#" class="btn" onclick="location.href='@Url.Action("TourList", "Home", new { id = item.MaLoaiTour })'">Xem thêm tour khác</a>
+                        </div> 
+                        i++; 
                     }
+                   
                 }
             </div>
         </div>
@@ -139,9 +143,11 @@
                 <span>TOURS SINH THÁI</span>
             </h1>
             <div class="box-container">
+                @{int i1 = 0;}
                 @foreach (Tour item in Model.tourlist)
                 {
-                    if (item.MaLoaiTour == 2)
+
+                    if (item.MaLoaiTour == 2 && i1 < 2)
                     {
 
                         <div class="box">
@@ -173,8 +179,11 @@
                                 </div>
                                 <div class="price">@item.Gia vnd<span> 20.000.000vnd</span></div>
                                 <a href="#" class="btn" onclick="location.href='@Url.Action("DatTour", "Home", new { id = item.ID })'">book now</a>
+                                <a href="#" class="btn" onclick="location.href='@Url.Action("TourDetails", "Home", new { id = item.ID })'">Chi tiết tour</a>
                             </div>
-                        </div>
+                            <a href="#" class="btn" onclick="location.href='@Url.Action("TourList", "Home", new { id = item.MaLoaiTour })'">Xem thêm tour khác</a>
+                        </div>         
+                        i1++;
                     }
                 }
             </div>
@@ -186,9 +195,10 @@
                 <span>TOURS VĂN HÓA - LỊCH SỬ</span>
             </h1>
             <div class="box-container">
+                @{int i2 = 0;}
                 @foreach (Tour item in Model.tourlist)
-                {
-                    if (item.MaLoaiTour == 3)
+                {                  
+                    if (item.MaLoaiTour == 3 && i2 < 2)
                     {
 
                         <div class="box">
@@ -220,9 +230,12 @@
                                 </div>
                                 <div class="price">@item.Gia vnd<span> 20.000.000vnd</span></div>
                                 <a href="#" class="btn" onclick="location.href='@Url.Action("DatTour", "Home", new { id = item.ID })'">book now</a>
+                                <a href="#" class="btn" onclick="location.href='@Url.Action("TourDetails", "Home", new { id = item.ID })'">Chi tiết tour</a>
                             </div>
+                            <a href="#" class="btn" onclick="location.href='@Url.Action("TourList", "Home", new { id = item.MaLoaiTour })'">Xem thêm tour khác</a>
                         </div>
-                    }
+                        i2++;
+                    }                                            
                 }
             </div>
         </div>

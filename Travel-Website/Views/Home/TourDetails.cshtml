@@ -1,0 +1,38 @@
+﻿@model Travel_Website.Models.Tour
+
+@{
+    ViewBag.Title = "TourDetails";
+    Layout = "~/Areas/admin/Views/Shared/AdminLayout.cshtml";
+}
+<!DOCTYPE html>
+<htm>
+    <head>
+        <link rel="stylesheet" href="~/Content/tourDescriptionStyle.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="container1">
+            <div class="content1">
+                <h1>@Html.DisplayFor(model => model.TenTour)</h1>
+                <br>
+                <hr>
+                <br>
+                @{
+                    var imgsrc = "";
+                    var base64 = Convert.ToBase64String(Model.HinhAnh.ToArray());
+                    imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                    <img src='@imgsrc' style="max-width:500px;max-height:500px" />
+                }
+                <br>
+                <h2>Chi tiết về tour</h2>
+                <p>
+                    @Html.DisplayFor(model => model.NoiDung)
+                </p>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </body>
+</htm>

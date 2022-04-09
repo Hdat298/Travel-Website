@@ -35,14 +35,6 @@
         </div>
 
         <div class="form-group">
-            @Html.Label("Tong Tien")
-            <div class="col-md-10">
-                <p>@Html.TextBoxFor(model => model.ThanhTien)</p> 
-            </div>
-        </div>
-
-
-        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Đặt Tour" class="btn btn-default" />
             </div>
@@ -58,12 +50,3 @@
     @Scripts.Render("~/Scripts/swiper-bundle.min.js")
     @Scripts.Render("~/Scripts/script.js")
 }
-
-<script src="~/Scripts/jquery-3.4.1.js"></script>
-<script>
-    $(function () {
-        $("#SoCho").blur(function () {
-            $("#ThanhTien").val(parseInt($("#Socho").val()) * $(50).val())
-        });
-    })
-</script>

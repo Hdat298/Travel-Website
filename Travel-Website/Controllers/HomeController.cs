@@ -11,6 +11,7 @@ using System.Data.Entity.Migrations;
 using System.Security.Cryptography;
 using System.Text;
 using MySql.Data.MySqlClient.Memcached;
+using PagedList;
 
 namespace Travel_Website.Controllers
 {
@@ -199,5 +200,22 @@ namespace Travel_Website.Controllers
             }
         }
 
+        public ActionResult TourDetails(int id)
+        {
+            Model1 context = new Model1();
+            Tour p = context.Tours.FirstOrDefault(x => x.ID == id);
+            return View(p);
+        }
+
+
+        public ActionResult TourList(int id, int? page)
+        {
+            Model1 context = new Model1();
+            int pageNumber = page ?? 1;
+            int pageSize = 2;
+            var tourlist = context.Tours.Where(x => x.MaLoaiTour == id).OrderBy(y => y.TenTour).ToPagedList(pageNumber, pageSize);
+            
+            return View(tourlist);
+        }
     }
 }
