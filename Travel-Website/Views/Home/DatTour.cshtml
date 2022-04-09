@@ -13,60 +13,93 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>@ViewBag.Title - DDT Group - Travel Around The World.</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <link rel="stylesheet"
-          href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-    @Styles.Render("~/Content/css")
+    <link rel="stylesheet" href="~/Content/userStyle.css" />
 </head>
 <body>
-    <section class="book1">
-        <h1 class="heading">
-            <span>đ</span>
-            <span>ặ</span>
-            <span>t</span>
-            <span class="space"></span>
-            <span>t</span>
-            <span>o</span>
-            <span>u</span>
-            <span>r</span>
-        </h1>
+    <div class="container booked-container">
         <div class="row">
-            <div class="image">
-                <img src="~/Content/Images/book-img.svg" alt="">
+            <div class="col-md-4 mt-1">
+                <div class="card text-center sidebar">
+                    <div class="card-body">
+                        <img src="~/Content/Images/book-tour-img.svg" />
+                    </div>
+                </div>
             </div>
-            <div class="book-container">
-                <dl class="dl-horizontal text-container">
+            <div class="col-md-8 mt-1">
+                <div class="card mb-3">
+                    <h1 class="m-3 pt-3 content1">Thông Tin Tour</h1>
                     @foreach (var item in Model.Tours)
                     {
-                        <dt>Mã Tour</dt>
-                        <dd>@item.MaTour</dd>
-                        <dt>Tên Tour</dt>
-                        <dd>@item.TenTour</dd>
-                        <dt>Giá</dt>
-                        <dd>@item.Gia</dd>
-                        <dt>Ngày Khởi Hành</dt>
-                        <dd>@item.NgayKhoiHanh</dd>
-                        <dt>Ngày Kết Thúc</dt>
-                        <dd>@item.NgayKetThuc</dd>
-                        <dt>Số Người</dt>
-                        <dd>@item.SoCho</dd>
-                        <dt>Nội Dung</dt>
-                        <dd>@item.NoiDung</dd>
-                        @*<td>
-                @{
-                var imgsrc = "";
-                if (item.HinhAnh != null)
-                {
-                    var base64 = Convert.ToBase64String(item.HinhAnh.ToArray());
-                    imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
-                }
-                <img src='@imgsrc' />
-            }
-            </td>*@
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Mã Tour</h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                @item.MaTour
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Tên Tour</h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                @item.TenTour
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Giá</h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                @item.Gia
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Ngày Khởi Hành</h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                @item.NgayKhoiHanh
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Ngày Kết Thúc</h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                @item.NgayKetThuc
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Số Chỗ</h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                @item.SoCho
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Nội Dung</h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                @item.NoiDung
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9 text-secondary">
+                            </div>
+                        </div>
                     }
-                </dl>
+                </div>
             </div>
-
-            <div class="book-btn">
+            <div class="book-btn col-md-3">
                 @foreach (var item in Model.Tours)
                 {
                     if (Session["Account"] != null)
@@ -82,8 +115,13 @@
 
             </div>
         </div>
-    </section >
-</body >
+    </div>
+   
+
+
+
+  
+</body>
 </html >
 
 

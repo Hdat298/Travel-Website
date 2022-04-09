@@ -12,37 +12,49 @@
     <link rel="stylesheet" href="~/Content/userStyle.css"/>
 </head>
 <body>
-    <h2>ThongTinTour</h2>
-
-    <div class="tourInfor-container">
-        <hr />
-        <table>
-            <tr>
-                <th>Tên khách hàng</th>
-                <th>Tour đã đặt</th>
-                <th>Số chỗ</th>
-                <th>Thành tiền</th>
-            </tr>
-            @{var userid = Session["Account"] as KhachHang; }
-            @{Model1 context = new Model1();}
-            @{List<DatTour> t = context.DatTours.ToList(); }
-            @foreach (ChiTietDatTour ctdt in Model.chitietdattourlist)
-            {
-                foreach (var item in t)
-                {
-                    if (ctdt.MaDatTour == item.ID)
-                    {
+    <h1 class="h1-container">Thông Tin Tour Đã Đặt</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mt-1">
+                <div class="card text-center sidebar">
+                    <div class="card-body img-container">
+                        <img src="~/Content/Images/booked-img.svg" class="rounded-circle" width="150" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 mt-1 table-container">
+                <table class="table">
+                    <thead>
                         <tr>
-                            <td>@userid.Ten</td>
-                            <td>@item.Tour.TenTour</td>
-                            <td>@item.SoCho</td>
-                            <td>@item.ThanhTien</td>
+                            <th scope="col">Tên khách hàng</th>
+                            <th scope="col">Tour đã đặt</th>
+                            <th scope="col">Số chỗ</th>
+                            <th scope="col">Thành tiền</th>
                         </tr>
-                    }
-                }
-            }
-        </table>
-
+                    </thead>
+                    <tbody>
+                        @{var userid = Session["Account"] as KhachHang; }
+                        @{Model1 context = new Model1();}
+                        @{List<DatTour> t = context.DatTours.ToList(); }
+                        @foreach (ChiTietDatTour ctdt in Model.chitietdattourlist)
+                        {
+                            foreach (var item in t)
+                            {
+                                if (ctdt.MaDatTour == item.ID)
+                                {
+                                    <tr>
+                                        <td>@userid.Ten</td>
+                                        <td>@item.Tour.TenTour</td>
+                                        <td>@item.SoCho</td>
+                                        <td>@item.ThanhTien</td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
     <div class="back-btn">
         <a>@Html.ActionLink("Back to List", "Index", "Home")</a>

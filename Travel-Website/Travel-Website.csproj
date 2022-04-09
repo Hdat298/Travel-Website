@@ -218,6 +218,8 @@
     <Content Include="Content\Images\6.jpg" />
     <Content Include="Areas\Resources\images\adminLog-img.svg" />
     <Content Include="Content\Images\book-img.svg" />
+    <Content Include="Content\Images\book-tour-img.svg" />
+    <Content Include="Content\Images\booked-img.svg" />
     <Content Include="Content\Images\contact-img.svg" />
     <Content Include="Content\Images\edit-tour-img.svg" />
     <Content Include="Content\Images\profile-img.svg" />
@@ -307,6 +309,7 @@
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\script.js" />
+    <Content Include="Scripts\script1.js" />
     <Content Include="Scripts\swiper-bundle.min.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />

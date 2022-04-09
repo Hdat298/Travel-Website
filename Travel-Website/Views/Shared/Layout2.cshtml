@@ -56,19 +56,30 @@
     <!--login-form-->
     <div class="login-form-container">
         <i class="fas fa-times" id="form-close"></i>
-        <form action="">
+        @using (Html.BeginForm("Login", "Home"))
+        {
             <h3>Login</h3>
-            <input type="email" class="box" placeholder="Nhập Email" />
-            <input type="password" class="box" placeholder="Nhập Mật Khẩu" />
-            <input type="submit" value="Đăng Nhập" class="btn" />
+            <input type="email" name="txtUser" class="box" placeholder="Nhập Email" />
+            <input type="password" name="txtPass" class="box" placeholder="Nhập Mật Khẩu" />
+            <input type="submit" value="Đăng Nhập" class="btn" id="loginBtn" />
             <input type="checkbox" id="remember">
             <label for="remember">Nhớ mật khẩu</label>
-            <p>Quên mật khẩu? <a href="#">Nhấn vào đây</a></p>
+            <p>Quên mật khẩu? <a class="forgotPassword" href="#">Nhấn vào đây</a></p>
             <p>chưa có tài khoản? <a>@Html.ActionLink("đăng ký ngay", "Signup", "Home")</a></p>
-        </form>
+        }
     </div>
     <!--end-login-form-->
-
+    <!--Forgot-Pass-Form-->
+    <div class="forgotPass-form-container">
+        <i class="fas fa-times" id="form-close1"></i>
+        @using (Html.BeginForm("forgotPassword", "Home"))
+        {
+            <h3>Khôi phục mật khẩu</h3>
+            <input type="email" name="email" class="box" placeholder="Nhập Email" />
+            <input type="submit" value="Gửi" class="btn" />
+        }
+    </div>
+    <!--Forgot-Pass-Form-->
 
     <div class="body-content">
         @RenderBody()
@@ -133,71 +144,10 @@
                 </div>
             </div>
         </div>
-        @*<div class="box-container">
-                <div class="box">
-                    <h3>về chúng tôi</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In congue scelerisque hendrerit. Morbi iaculis euismod lacus eget elementum. Fusce et lacus diam. Maecenas gravida imperdiet eleifend</p>
-                </div>
-                <div class="box">
-                    <h3>chi nhánh</h3>
-                    <a href="#">VietNam</a>
-                    <a href="#">Japan</a>
-                    <a href="#">USA</a>
-                </div>
-                <div class="box">
-                    <h3>lối tắt</h3>
-                    <a href="#">Home</a>
-                    <a href="#">book</a>
-                    <a href="#">tours</a>
-                    <a href="#">services</a>
-                    <a href="#">gallery</a>
-                    <a href="#">review</a>
-                    <a href="#">contact</a>
-                </div>
-                <div class="box">
-                    <h3>theo dõi chúng tôi</h3>
-                    <a href="#">facebook</a>
-                    <a href="#">instagram</a>
-                    <a href="#">twitter</a>
-                    <a href="#">youtube</a>
-                </div>
-            </div>*@
     </section>
     <!--end-footer-section-->
 
-    @Scripts.Render("~/Scripts/script.js")
+    @Scripts.Render("~/Scripts/script1.js")
 </body>
-@*<body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-            </footer>
-        </div>
-
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
-    </body>*@
 </html>
 
