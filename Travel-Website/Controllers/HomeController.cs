@@ -17,6 +17,27 @@ namespace Travel_Website.Controllers
 {
     public class HomeController : Controller
     {
+
+        public void GuiEmail(string Title, string ToEmail, string FromEmail, string PassWord, string Content)
+        {
+            // goi email
+            MailMessage mail = new MailMessage();
+            mail.To.Add(ToEmail); // Địa chi nhận
+            mail.From = new MailAddress(ToEmail); // Địa chửi gừi
+            mail.Subject = Title; // tiêu đề gửi
+            mail.Body = Content; // Nội dung
+            mail.IsBodyHtml = true;
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com"; // host gửi của Gmail
+            smtp.Port = 587;  // port của Gmail
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = new System.Net.NetworkCredential
+            (FromEmail, PassWord);//Tài khoản password người gửi
+            smtp.EnableSsl = true; //kích hoạt giao tiếp an toàn SSL
+            smtp.Send(mail); //Gửi mail đi
+
+        }
+
         public string transMD5 (string password)
         {
             MD5 mh = MD5.Create();
@@ -79,29 +100,40 @@ namespace Travel_Website.Controllers
             return tinhThanhs;
         }
 
+        [HttpGet]
+        public ActionResult Signup()
+        {
+            return View();
+        }
+
+        [HttpPost]
         public ActionResult Signup(KhachHang KhachHang)
         {
             ViewBag.Message = "DDT Group - Đăng ký tài khoản";
-            if (Request.Form.Count > 0)
+            if(ModelState.IsValid)
             {
-                Model1 context = new Model1();
-                KhachHang KhachHang1 = new KhachHang();
-
-                if (context.KhachHangs.Any(x => x.TenDangNhap == KhachHang.TenDangNhap))
+                if (Request.Form.Count > 0)
                 {
-                    ViewBag.DuplicateMessage = "Tên đăng nhập đã tồn tại.";
-                    return View();
+                    Model1 context = new Model1();
+                    KhachHang KhachHang1 = new KhachHang();
+
+                    if (context.KhachHangs.Any(x => x.TenDangNhap == KhachHang.TenDangNhap))
+                    {
+                        ViewBag.DuplicateMessage = "Tên đăng nhập đã tồn tại.";
+                        return View();
+                    }
+
+                    KhachHang1.Ten = Request.Form["Ten"];
+                    KhachHang1.SDT = Request.Form["SDT"];
+                    KhachHang1.TenDangNhap = Request.Form["TenDangNhap"];
+                    KhachHang1.MatKhau = Request.Form["MatKhau"];
+
+                    context.KhachHangs.Add(KhachHang1);
+                    context.SaveChanges();
+                    return RedirectToAction("Index");
                 }
-
-                KhachHang1.Ten = Request.Form["Ten"];
-                KhachHang1.SDT = Request.Form["SDT"];
-                KhachHang1.TenDangNhap = Request.Form["TenDangNhap"];
-                KhachHang1.MatKhau = Request.Form["MatKhau"];
-
-                context.KhachHangs.Add(KhachHang1);
-                context.SaveChanges();
-                return RedirectToAction("Index");
             }
+           
             return View();
         }
 
@@ -111,13 +143,21 @@ namespace Travel_Website.Controllers
             Model1 context = new Model1();
             string sUser = f["txtUser"].ToString();
             string sPass = f["txtPass"].ToString();
+            var GiaiPass = transMD5(sPass);
 
-            KhachHang kh = context.KhachHangs.SingleOrDefault(p => p.TenDangNhap == sUser && p.MatKhau == sPass);
+            KhachHang kh = context.KhachHangs.SingleOrDefault(p => p.TenDangNhap == sUser && p.MatKhau == GiaiPass);
             if (kh != null)
             {
                 Session["Account"] = kh;
                 return RedirectToAction("Index", "Home");
             }
+            TempData["msg"] = "<script>alert('Sai tài khoản hoặc mật khẩu.');</script>";
+            return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult Logout()
+        {
+            Session["Account"] = null;
             return RedirectToAction("Index", "Home");
         }
 
@@ -131,7 +171,7 @@ namespace Travel_Website.Controllers
         {
             dynamic dy = new ExpandoObject();
             dy.Tours = GetTours(id);
-            
+            TempData["msg1"] = "<script>alert('Vui lòng đăng nhập để đặt tour.');</script>";
             return View(dy);
         }
 
@@ -161,8 +201,8 @@ namespace Travel_Website.Controllers
                 DatTour.MaKhachHang = userid.ID;
                 
                 context.ChiTietDatTours.Add(DatTour);
-                context.SaveChanges();
-            }                     
+                context.SaveChanges();                            
+            }
             return View();
         }
 
@@ -173,23 +213,25 @@ namespace Travel_Website.Controllers
             var s = context.KhachHangs.FirstOrDefault(p => p.TenDangNhap == email1);
             if (s != null)
             {
-                var mail = new SmtpClient("smtp.gmail.com", 587)
-                {
-                    Credentials = new NetworkCredential("minhtan12374@gmail.com", "Minh@123"),
-                    EnableSsl = true,
-                    UseDefaultCredentials = false
-                };
-                var message = new MailMessage();
-                message.From = new MailAddress("minhtan12374@gmail.com");
-                message.ReplyToList.Add("minhtan12374@gmail.com");
-                message.To.Add(new MailAddress(s.TenDangNhap));
-                message.Subject = "Thông báo về việc thay đổi mật khẩu của DDT Tour";
+                //var mail = new SmtpClient("smtp.gmail.com", 587)
+                //{
+                //    //Credentials = new NetworkCredential("minhtan12374@gmail.com", "Minh@123"),
+                //    Credentials = new NetworkCredential("daonhattin12@gmail.com", "nhattin12"),
+                //    EnableSsl = true,
+                //    UseDefaultCredentials = false
+                ////};
+                //MailMessage message = new MailMessage();
+                //message.From = new MailAddress("daonhattin12@gmail.com");
+                //message.ReplyToList.Add("daonhattin12@gmail.com");
+                //message.To.Add(new MailAddress(s.TenDangNhap));
+                //message.Subject = "Thông báo về việc thay đổi mật khẩu của DDT Tour";
                 string pass = randomPass();
-                message.Body = "Mật khẩu của bạn đã được reset thành " + pass;
+                //message.Body = "Mật khẩu của bạn đã được reset thành " + pass;
                 s.MatKhau = transMD5(pass);
                 context.KhachHangs.AddOrUpdate(s);
                 context.SaveChanges();
-                mail.Send(message);
+                //mail.Send(message);
+                GuiEmail("Thông báo về việc thay đổi mật khẩu của DDT Tour", s.TenDangNhap, "daonhattin12@gmail.com", "nhattin12", "Mật khẩu của bạn đã được reset thành " + pass);
                 ViewBag.Message = "Đã gửi mail thành công!!! Vui lòng kiểm tra email";
                 return RedirectToAction("Index", "Home");
             }
@@ -199,7 +241,6 @@ namespace Travel_Website.Controllers
                 return RedirectToAction("Index","Home");
             }
         }
-
         public ActionResult TourDetails(int id)
         {
             Model1 context = new Model1();

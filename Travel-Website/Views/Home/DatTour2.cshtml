@@ -1,52 +1,61 @@
-﻿@model Travel_Website.Models.DatTour
+@model Travel_Website.Models.DatTour
 @using Travel_Website.Models;
 
 @{
     ViewBag.Title = "DatTour2";
     Layout = null;
 }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - DDT Group - Travel Around The World.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet"
+          href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div class="book2">
+        <h2>DatTour2</h2>
 
-<h2>DatTour2</h2>
+        <div class="book2-container">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
+                <div class="form-horizontal">
+                    <h4>DatTour</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        Ngày Đặt
+                        <div class="col-md-10">
+                            @DateTime.Now.ToString()
+                            @Html.ValidationMessageFor(model => model.NgayDat, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-    <div class="form-horizontal">
-        <h4>DatTour</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        Số Người
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.SoCho, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SoCho, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.NgayDat, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @DateTime.Now.ToString()
-                @Html.ValidationMessageFor(model => model.NgayDat, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SoCho, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SoCho, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SoCho, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Đặt Tour" class="btn btn-default" />
-            </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="DatTour2" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
         </div>
     </div>
-}
+    
+</body>
+</html>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/Scripts/swiper-bundle.min.js")
-    @Scripts.Render("~/Scripts/script.js")
-}

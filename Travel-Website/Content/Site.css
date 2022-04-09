@@ -459,6 +459,10 @@ hr.light-100 {
     html {
         font-size: 55%;
     }
+
+    .book1 .row .image img {
+        width: 50%;
+    }
 }
 
 @media (max-width:991px) {
@@ -468,6 +472,10 @@ hr.light-100 {
 
     section {
         padding: 2rem;
+    }
+
+    .book1 .row .image img {
+        width: 50%;
     }
 }
 
@@ -491,6 +499,10 @@ hr.light-100 {
         padding: 1.5rem;
         margin: 1.5rem 0;
         background: #222;
+    }
+
+    .book1 .row .image img {
+        width: 30%;
     }
 }
 
@@ -616,6 +628,61 @@ section {
     color: #666;
 }*/
 /*end book section*/
+
+/*book1-section*/
+.book1 {
+    margin-top: 6rem;
+}
+
+.book1 .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.book1 .row .image {
+    flex: 1 1 40rem;
+}
+
+.book1 .row .image img {
+    width: 70%;
+}
+
+.book1 .row .book-container {
+    position: absolute;
+    right: 50rem;
+}
+
+.book1 .row .book-container dd {
+    width: 20rem;
+}
+
+.book1 .row .book-btn {
+    position: absolute;
+    right: 50rem;
+    top: 95rem;
+}
+/*book1-section-end*/
+
+/*book2-section*/
+.book2 {
+    margin-top: 10rem;
+    margin-left: 10rem;
+}
+
+.book2 .book2-container {
+    width: 80rem;
+    flex: 1 1 40rem;
+    padding: 2rem;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.1);
+    border-radius: .5rem;
+}
+
+.book2 .book2-container {
+    font-size: 2rem;
+}
+/*book2-section-end*/
 
 /*tours section*/
 .tours .box-container {

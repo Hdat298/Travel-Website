@@ -5,12 +5,13 @@
     Layout = "~/Areas/admin/Views/Shared/AdminLayout.cshtml";
 }
 
+<link rel="stylesheet" href="~/Content/tourDetailStyle.css"/>
 <h2>Details</h2>
 
 <div class="tour-container">
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.MaTour)
+            Mã Tour
         </dt>
 
         <dd>
@@ -18,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TenTour)
+            Tên Tour
         </dt>
 
         <dd>
@@ -26,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Gia)
+            Giá
         </dt>
 
         <dd>
@@ -34,7 +35,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NgayKhoiHanh)
+            Ngày Khởi Hành
         </dt>
 
         <dd>
@@ -42,7 +43,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NgayKetThuc)
+            Ngày Kết Thúc
         </dt>
 
         <dd>
@@ -50,7 +51,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.SoCho)
+            Số Người
         </dt>
 
         <dd>
@@ -58,7 +59,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NoiDung)
+            Nội Dung
         </dt>
 
         <dd>
@@ -66,7 +67,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.LoaiTour.TenLoaiTour)
+            Tên Loại Tour 
         </dt>
 
         <dd>
@@ -74,7 +75,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.HinhAnh)
+            Hình Ảnh
         </dt>
 
         <dd>
@@ -86,7 +87,8 @@
             }
         </dd>
 
-
+    </dl>
+</div>
     <div>
         <hr />
         

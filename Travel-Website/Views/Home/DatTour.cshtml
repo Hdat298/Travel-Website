@@ -3,14 +3,14 @@
 
 @{
     ViewBag.Title = "DatTour";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/Layout2.cshtml";
 }
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>@ViewBag.Title - DDT Group - Travel Around The World.</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet"
@@ -18,7 +18,7 @@
     @Styles.Render("~/Content/css")
 </head>
 <body>
-    <section class="signup">
+    <section class="book1">
         <h1 class="heading">
             <span>đ</span>
             <span>ặ</span>
@@ -33,63 +33,56 @@
             <div class="image">
                 <img src="~/Content/Images/book-img.svg" alt="">
             </div>
+            <div class="book-container">
+                <dl class="dl-horizontal text-container">
+                    @foreach (var item in Model.Tours)
+                    {
+                        <dt>Mã Tour</dt>
+                        <dd>@item.MaTour</dd>
+                        <dt>Tên Tour</dt>
+                        <dd>@item.TenTour</dd>
+                        <dt>Giá</dt>
+                        <dd>@item.Gia</dd>
+                        <dt>Ngày Khởi Hành</dt>
+                        <dd>@item.NgayKhoiHanh</dd>
+                        <dt>Ngày Kết Thúc</dt>
+                        <dd>@item.NgayKetThuc</dd>
+                        <dt>Số Người</dt>
+                        <dd>@item.SoCho</dd>
+                        <dt>Nội Dung</dt>
+                        <dd>@item.NoiDung</dd>
+                        @*<td>
+                @{
+                var imgsrc = "";
+                if (item.HinhAnh != null)
+                {
+                    var base64 = Convert.ToBase64String(item.HinhAnh.ToArray());
+                    imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                }
+                <img src='@imgsrc' />
+            }
+            </td>*@
+                    }
+                </dl>
+            </div>
 
-            <table>
-                <tr>
-                    <th>Mã tour</th>
-                    <th>Tên tour</th>
-                    <th>Giá</th>
-                    <th>Ngày Khởi Hành</th>
-                    <th>Ngày Kết Thúc</th>
-                    <th>Số Chỗ</th>
-                    <th>Nội Dung</th>
-                    @*<th>Hình Ảnh</th>*@
-                </tr>
+            <div class="book-btn">
                 @foreach (var item in Model.Tours)
                 {
-                    <tr>
-                        <td>@item.MaTour</td>
-                        <td>@item.TenTour</td>
-                        <td>@item.Gia</td>
-                        <td>@item.NgayKhoiHanh</td>
-                        <td>@item.NgayKetThuc</td>
-                        <td>@item.SoCho</td>
-                        <td>@item.NoiDung</td>
-                        <td>
-                            @*@{
-                            var imgsrc = "";
-                            if (item.HinhAnh != null)
-                            {
-                                var base64 = Convert.ToBase64String(item.HinhAnh.ToArray());
-                                imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
-                            }
-                            <img src='@imgsrc' />
-                        }*@
-                        </td>
-                    </tr>
+                    if (Session["Account"] != null)
+                    {
+                        <a href="#" class="btn" onclick="location.href='@Url.Action("DatTour2", "Home", new { id = item.ID })'">Đặt tour</a>
+                    }
+                    else
+                    {
+                        @Html.Raw(TempData["msg1"])
+                        <a href="#" class="btn" onclick="location.href='@Url.Action("Index", "Home", new { id = item.ID })'">Đặt tour</a>
+                    }
                 }
 
-            </table>
-
-            @foreach (var item in Model.Tours)
-            {
-                if (Session["Account"] != null)
-                {
-                    <a href="#" class="btn" onclick="location.href='@Url.Action("DatTour2", "Home", new { id = item.ID })'">Đặt tour</a>
-                }
-                else
-                {
-                    <a href="#" class="btn" onclick="location.href='@Url.Action("Index", "Home", new { id = item.ID })'">Đặt tour</a>
-                    @*<script>
-                        $(document).ready(function () {
-                                alert('Vui lòng đăng nhập');
-                        });
-                        </script>*@
-                 }
-              }
-
+            </div>
         </div>
-     </section >
+    </section >
 </body >
 </html >
 

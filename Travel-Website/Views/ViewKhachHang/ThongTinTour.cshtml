@@ -3,41 +3,50 @@
 
 @{
     ViewBag.Title = "ThongTinTour";
-    Layout = null;
+    Layout = "~/Views/Shared/Layout2.cshtml";
 }
 
-<h2>ThongTinTour</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/userStyle.css"/>
+</head>
+<body>
+    <h2>ThongTinTour</h2>
 
-<div>
-    <hr />
-    <table>
-        <tr>
-            <th>Tên khách hàng</th>
-            <th>Tour đã đặt</th>
-            <th>Số chỗ</th>
-            <th>Thành tiền</th>
-        </tr>
-        @{var userid = Session["Account"] as KhachHang; }
-        @{Model1 context = new Model1();}
-        @{List<DatTour> t = context.DatTours.ToList(); }
-        @foreach (ChiTietDatTour ctdt in Model.chitietdattourlist)
-        {
-            foreach (var item in t)
+    <div class="tourInfor-container">
+        <hr />
+        <table>
+            <tr>
+                <th>Tên khách hàng</th>
+                <th>Tour đã đặt</th>
+                <th>Số chỗ</th>
+                <th>Thành tiền</th>
+            </tr>
+            @{var userid = Session["Account"] as KhachHang; }
+            @{Model1 context = new Model1();}
+            @{List<DatTour> t = context.DatTours.ToList(); }
+            @foreach (ChiTietDatTour ctdt in Model.chitietdattourlist)
             {
-                if (ctdt.MaDatTour == item.ID)
+                foreach (var item in t)
                 {
-                    <tr>
-                        <td>@userid.Ten</td>
-                        <td>@item.Tour.TenTour</td>
-                        <td>@item.SoCho</td>
-                        <td>@item.ThanhTien</td>
-                    </tr>
+                    if (ctdt.MaDatTour == item.ID)
+                    {
+                        <tr>
+                            <td>@userid.Ten</td>
+                            <td>@item.Tour.TenTour</td>
+                            <td>@item.SoCho</td>
+                            <td>@item.ThanhTien</td>
+                        </tr>
+                    }
                 }
             }
-        }
-    </table>
+        </table>
 
-</div>
-<p>
-    @Html.ActionLink("Back to List", "Index" , "Home")
-</p>
+    </div>
+    <div class="back-btn">
+        <a>@Html.ActionLink("Back to List", "Index", "Home")</a>
+    </div>
+</body>
+</html>
+

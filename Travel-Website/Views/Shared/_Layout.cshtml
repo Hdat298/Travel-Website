@@ -35,11 +35,11 @@
                         Hello @kh.Ten
                     </div>
                     <div class="menu">
-                        <h3>Hành Trình<br> <span>DDT Travel</span> </h3>
+                        <h3>Menu<br> <span>DDT Travel</span> </h3>
                         <ul>
                             <li><img src="~/Content/Images/menu-user-1.png"><a href="@Url.Action("ThongTinKhachhHang", "ViewKhachHang")">Thông tin</a></li>
                             <li><img src="~/Content/Images/menu-user-2.png"><a href="@Url.Action("ThongTinTour", "ViewKhachHang")">Tour đã đặt</a></li>
-                            <li><img src="~/Content/Images/menu-user-3.png"><a href="#">Đăng xuất</a></li>
+                            <li><img src="~/Content/Images/menu-user-3.png"><a href="@Url.Action("Logout", "Home")">Đăng xuất</a></li>
                         </ul>
                     </div>
                 </div>
@@ -47,15 +47,18 @@
             }
             else
             {
+                @Html.Raw(TempData["msg"])
                 <i class="fas fa-user" id="login-btn"></i>
             }
 
         </div>
 
-        <form action="" class="search-bar-container">
-            <input type="search" id="search-bar" placeholder="tìm kiếm..." />
-            <label for="search-bar" class="fas fa-search"></label>
-        </form>
+        @using (Html.BeginForm("getKeyWord", "SearchTour", new { ReturnUrl = ViewBag.ReturnUrl}, FormMethod.Post, new { @class = "search-bar-container" }))
+        {
+                <input name="keyword" type="search" id="search-bar" placeholder="nhập địa điểm..." />
+                <input type="submit" for="search-bar" class="fas fa-search" />
+        }
+
     </header>
     <!--end-header-section-->
     <!--login-form-->
@@ -66,7 +69,7 @@
             <h3>Login</h3>
             <input type="email" name="txtUser" class="box" placeholder="Nhập Email" />
             <input type="password" name="txtPass" class="box" placeholder="Nhập Mật Khẩu" />
-            <input type="submit" value="Đăng Nhập" class="btn" />
+            <input type="submit" value="Đăng Nhập" class="btn" id="loginBtn" />
             <input type="checkbox" id="remember">
             <label for="remember">Nhớ mật khẩu</label>
             <p>Quên mật khẩu? <a class="forgotPassword" href="#">Nhấn vào đây</a></p>

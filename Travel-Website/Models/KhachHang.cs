@@ -1,4 +1,4 @@
-namespace Travel_Website.Models
+﻿namespace Travel_Website.Models
 {
     using System;
     using System.Collections.Generic;
@@ -22,16 +22,20 @@ namespace Travel_Website.Models
         public string MaKhachHang { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(50, ErrorMessage = "Vui lòng nhập họ tên.")]
         public string Ten { get; set; }
 
-        [StringLength(12)]
+        [Required]
+        [StringLength(12, ErrorMessage = "Vui lòng nhập số điện thoại")]
         public string SDT { get; set; }
 
+        [Required]
         [StringLength(30)]
+        [RegularExpression(".+\\@.+\\..+", ErrorMessage = "Vui lòng nhập email phù hợp")]
         public string TenDangNhap { get; set; }
 
-        [StringLength(100)]
+        [Required]
+        [StringLength(100, ErrorMessage = "Vui lòng nhập mật khẩu")]
         public string MatKhau { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

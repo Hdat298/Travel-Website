@@ -187,6 +187,7 @@
     <Compile Include="Controllers\ImagesTController.cs" />
     <Compile Include="Controllers\KhachHangController.cs" />
     <Compile Include="Controllers\LoaiTourController.cs" />
+    <Compile Include="Controllers\SearchTourController.cs" />
     <Compile Include="Controllers\TinhThanhController.cs" />
     <Compile Include="Controllers\TourController.cs" />
     <Compile Include="Controllers\ViewKhachHangController.cs" />
@@ -226,6 +227,7 @@
     <Content Include="Content\Images\contact-img.svg" />
     <Content Include="Content\Images\edit-tour-img.svg" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Images\profile-img.svg" />
     <Content Include="Content\tourDetailStyle.css" />
     <Content Include="Content\tourEditStyle.css" />
     <Content Include="Content\tourIndexStyle.css" />
@@ -263,6 +265,7 @@
     <Content Include="Content\Images\vid-4.mp4" />
     <Content Include="Content\Images\vid-5.mp4" />
     <Content Include="Content\tourDescriptionStyle.css" />
+    <Content Include="Content\userStyle.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -290,11 +293,11 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Areas\admin\Views\web.config" />
-    <Content Include="Areas\admin\Views\Admin\Login.cshtml" />
     <Content Include="Areas\admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\admin\Views\Shared\AdminLayout.cshtml" />
     <Content Include="Areas\admin\Views\Admin\dashBoard.cshtml" />
+    <Content Include="Areas\admin\Views\Admin\Login.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -370,6 +373,7 @@
     <Content Include="Views\ViewKhachHang\ThongTinTour.cshtml" />
     <Content Include="Views\Home\TourDetails.cshtml" />
     <Content Include="Views\Home\TourList.cshtml" />
+    <Content Include="Views\SearchTour\searchResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

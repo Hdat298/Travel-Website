@@ -12,6 +12,10 @@ namespace Travel_Website.Controllers
         // GET: Tour
         public ActionResult Index()
         {
+            if (Session["adAccount"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             Model1 context = new Model1();
             List<Tour> Tours = context.Tours.ToList();
             return View(Tours);

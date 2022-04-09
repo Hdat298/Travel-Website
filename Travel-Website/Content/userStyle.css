@@ -1,0 +1,96 @@
+﻿body {
+    margin-top: 20rem;
+    background-color: lightgray;
+}
+
+.main {
+    padding:15px;
+    font-family: Arial, Arial, Helvetica, sans-serif;
+}
+
+.topbar {
+    background-color: teal;
+    overflow: hidden;
+}
+
+.topbar a {
+    float: right;
+    color: whitesmoke;
+    text-align: center;
+    padding: 20px 26px;
+    text-decoration: none;
+    font-size: 26px;
+}
+
+.sidebar {
+    background-color: #333;
+    color: white;
+    height: 100%;
+}
+
+.slidebar a {
+    margin-left: 10px;
+    display: block;
+    color: white;
+    padding-bottom: 10px;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    background-color: whitesmoke;
+    padding: 10rem;
+    font-size: 2rem;
+}
+
+.content h1 {
+    position: absolute;
+    top: 1rem;
+    left: 8rem;
+}
+
+
+/*.user-container .infor {
+    margin: 2rem 10rem 3rem;
+    font-size: 2rem;
+    width: 80rem;
+    flex: 1 1 40rem;
+    padding: 2rem;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.1);
+    border-radius: .5rem;
+}
+
+th {
+    padding: 0 20px;
+}
+
+td {
+    padding: 0 20px;
+}
+
+.back-btn {
+    margin-left: 10rem;
+
+}
+
+
+
+.user-container {
+    margin: 10rem 0 0 10rem;
+}
+
+.user-container .infor {
+    font-size: 2rem;
+}
+
+.user-container .infor dd {
+    margin-left: 3rem;
+    margin-bottom: 2rem;
+}
+*/
