@@ -1085,7 +1085,25 @@ section {
 }
 /*end-signup*/
 
-/**Tour/Create*/
+/*Paging*/
+.pagination-container .pagination {
+    justify-content: center;
+}
+
+.pagination-container ul li {
+    line-height: 45px;
+    text-align: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.pagination-container ul li a {
+    height: 45px;
+    padding: 0 1rem;
+}
+/*Paging-End*/
 
 
 
