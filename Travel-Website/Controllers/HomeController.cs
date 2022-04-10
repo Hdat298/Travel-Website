@@ -112,7 +112,7 @@ namespace Travel_Website.Controllers
                     KhachHang1.Ten = Request.Form["Ten"];
                     KhachHang1.SDT = Request.Form["SDT"];
                     KhachHang1.TenDangNhap = Request.Form["TenDangNhap"];
-                    KhachHang1.MatKhau = Request.Form["MatKhau"];
+                    KhachHang1.MatKhau = transMD5(Request.Form["MatKhau"]);
 
                     context.KhachHangs.Add(KhachHang1);
                     context.SaveChanges();

@@ -18,8 +18,6 @@
 </head>
 <body>
     <div class="book2">
-        <h2>DatTour2</h2>
-
         <div class="book2-container">
             @using (Html.BeginForm())
             {
@@ -31,7 +29,7 @@
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
                     <div class="form-group">
-                        Ngày Đặt
+                        <a>Ngày Đặt</a>
                         <div class="col-md-10">
                             @DateTime.Now.ToString()
                             @Html.ValidationMessageFor(model => model.NgayDat, "", new { @class = "text-danger" })
