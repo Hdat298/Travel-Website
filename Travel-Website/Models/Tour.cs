@@ -51,6 +51,7 @@ namespace Travel_Website.Models
 
         public virtual LoaiTour LoaiTour { get; set; }
 
+
         public List<LoaiTour> ListLoaiTour = new List<LoaiTour>();
     }
 }

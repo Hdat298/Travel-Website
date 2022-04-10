@@ -18,6 +18,7 @@ namespace Travel_Website.Models
         public virtual DbSet<LoaiTour> LoaiTours { get; set; }
         public virtual DbSet<TaiKhoanAdmin> TaiKhoanAdmins { get; set; }
         public virtual DbSet<Tour> Tours { get; set; }
+        public virtual DbSet<LienHe> LienHes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -64,6 +65,15 @@ namespace Travel_Website.Models
                 .HasMany(e => e.DatTours)
                 .WithOptional(e => e.Tour)
                 .HasForeignKey(e => e.MaTour);
+
+            modelBuilder.Entity<LienHe>()
+                .Property(e => e.MaLienHe)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<LienHe>()
+                .Property(e => e.SDT)
+                .IsFixedLength()
+                .IsUnicode(false);
         }
     }
 }

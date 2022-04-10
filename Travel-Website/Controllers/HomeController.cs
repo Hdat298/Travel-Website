@@ -67,6 +67,7 @@ namespace Travel_Website.Controllers
             dynamic dy = new ExpandoObject();
             dy.tourlist = getTour();
             dy.loaitourlist = getLoaiTours();
+            dy.lienhe = getLienHes();
             return View(dy);
         }
 
@@ -81,6 +82,13 @@ namespace Travel_Website.Controllers
         {
             Model1 context = new Model1();
             List<LoaiTour> tinhThanhs = context.LoaiTours.ToList();
+            return tinhThanhs;
+        }
+
+        public List<LienHe> getLienHes()
+        {
+            Model1 context = new Model1();
+            List<LienHe> tinhThanhs = context.LienHes.ToList();
             return tinhThanhs;
         }
 
