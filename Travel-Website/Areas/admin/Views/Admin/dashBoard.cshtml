@@ -1,4 +1,6 @@
-﻿
+﻿@model IEnumerable<Travel_Website.Models.ChiTietDatTour>
+@using Travel_Website.Models;
+
 @{
     ViewBag.Title = "dashBoard";
     Layout = "~/Areas/admin/Views/Shared/AdminLayout.cshtml";
@@ -11,91 +13,121 @@
     <link rel="stylesheet" href="~/Areas/Resources/adminStyle.css" />
 </head>
 <body>
-     <div class="cardBox">
-            <div class="card">
-                <div>
-                    <div class="numbers">10,000</div>
-                    <div class="cardName">Daily Views</div>
-                </div>
-                <div class="iconBx">
-                    <ion-icon name="eye-outline"></ion-icon>
-                </div>
+    <div class="cardBox">
+        <div class="card">
+            <div>
+                <div class="numbers">@Model.Count()</div>
+                <div class="cardName">Số tour đã được đặt</div>
             </div>
-            <div class="card">
-                <div>
-                    <div class="numbers">10,000</div>
-                    <div class="cardName">Daily Views</div>
-                </div>
-                <div class="iconBx">
-                    <ion-icon name="eye-outline"></ion-icon>
-                </div>
-            </div>
-            <div class="card">
-                <div>
-                    <div class="numbers">10,000</div>
-                    <div class="cardName">Daily Views</div>
-                </div>
-                <div class="iconBx">
-                    <ion-icon name="eye-outline"></ion-icon>
-                </div>
-            </div>
-            <div class="card">
-                <div>
-                    <div class="numbers">10,000</div>
-                    <div class="cardName">Daily Views</div>
-                </div>
-                <div class="iconBx">
-                    <ion-icon name="eye-outline"></ion-icon>
-                </div>
+            <div class="iconBx">
+                <ion-icon name="eye-outline"></ion-icon>
             </div>
         </div>
 
-        <!--main-list-->
-        <div class="details">
-            <!--detail-list-->
-            <div class="recentTours">
-                <div class="cardHeader">
-                    <h2>Recent Tours</h2>
-                    <a href="#" class="btn">View All</a>
-                </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>Name</td>
-                            <td>Price</td>
-                            <td>Payment</td>
-                            <td>Status</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Star Refrigerator</td>
-                            <td>100.000vnd</td>
-                            <td>Paid</td>
-                            <td><span class="status delivered">Delivered</span></td>
-                        </tr>
-                    </tbody>
-                    
-                </table>
+
+        <div class="card">
+            <div>
+                @{int? sum = 0;}
+                @{Model1 context = new Model1();}
+                @{List<DatTour> t = context.DatTours.ToList(); }
+                @foreach (var item in Model)
+                {
+                    foreach (var item1 in t)
+                    {
+                        if (item.MaDatTour == item1.ID)
+                        {
+                            sum = sum + item1.ThanhTien;
+                        }
+                    }
+                }
+                <div class="numbers">@sum</div>
+                <div class="cardName">Tổng tiền</div>
             </div>
-            <!--customer-details-->
-            <div class="recentCustomers">
-                <div class="cardHeader">
-                    <h1>Recent Customers</h1>
-                </div>
-                <table>
+            <div class="iconBx">
+                <ion-icon name="eye-outline"></ion-icon>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div>
+                <div class="numbers">10,000</div>
+                <div class="cardName">Daily Views</div>
+            </div>
+            <div class="iconBx">
+                <ion-icon name="eye-outline"></ion-icon>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div>
+                <div class="numbers">10,000</div>
+                <div class="cardName">Daily Views</div>
+            </div>
+            <div class="iconBx">
+                <ion-icon name="eye-outline"></ion-icon>
+            </div>
+        </div>
+    </div>
+
+    <!--main-list-->
+    <div class="details">
+        <!--detail-list-->
+        @{Model1 context1 = new Model1();}
+
+        @foreach (var item in Model)
+        {
+            List<DatTour> t1 = context.DatTours.Where(x => x.ID == item.MaDatTour).ToList();
+            List<KhachHang> t2 = context.KhachHangs.Where(y => y.ID == item.MaKhachHang).ToList();
+
+         <div class="recentTours">
+            <div class="cardHeader">
+                <h2>Recent Tours</h2>
+                <a href="#" class="btn">View All</a>
+            </div>
+            <table>
+                <thead>
                     <tr>
-                        <td><h4>David <br><span>Italy</span></h4></td>
+                        <td>Name</td>
+                        <td>Price</td>
+                        <td>Payment</td>
+                        <td>Status</td>
                     </tr>
-                </table>
+                </thead>
+                <tbody>
+                    <tr>
+                        @foreach (var item1 in t1)
+                        {
+                            foreach (var item2 in t2)
+                            {
+                                <td>@item2.Ten</td>
+                                <td>@item1.ThanhTien</td>
+                                <td>Paid</td>
+                                <td><span class="status delivered">Delivered</span></td>
+                            }
+                        }
+
+                    </tr>
+                </tbody>
+            </table>
+         </div>
+        }
+        <!--customer-details-->
+        <div class="recentCustomers">
+            <div class="cardHeader">
+                <h1>Recent Customers</h1>
             </div>
+            <table>
+                <tr>
+                    <td><h4>David <br><span>Italy</span></h4></td>
+                </tr>
+            </table>
         </div>
-        <!--detail-list-end-->
+    </div>
+    <!--detail-list-end-->
 
-
-
-
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

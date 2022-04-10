@@ -12,7 +12,9 @@ namespace Travel_Website.Areas.admin.Controllers
 
         public ActionResult dashBoard()
         {
-            return View();
+            Model1 context = new Model1();
+            List<ChiTietDatTour> ctdt = context.ChiTietDatTours.ToList();
+            return View(ctdt);
         }
 
         [HttpGet]
