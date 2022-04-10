@@ -12,7 +12,6 @@ namespace Travel_Website.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tour()
         {
-            ChiTietTours = new HashSet<ChiTietTour>();
             DatTours = new HashSet<DatTour>();
         }
 
@@ -39,13 +38,13 @@ namespace Travel_Website.Models
         [StringLength(1000)]
         public string NoiDung { get; set; }
 
+        [StringLength(1000)]
+        public string ChiTietTour { get; set; }
+
         public int? MaLoaiTour { get; set; }
 
         [Column(TypeName = "image")]
         public byte[] HinhAnh { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietTour> ChiTietTours { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DatTour> DatTours { get; set; }
