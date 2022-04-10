@@ -34,7 +34,5 @@ namespace Travel_Website.Models
         public virtual ICollection<ChiTietDatTour> ChiTietDatTours { get; set; }
 
         public virtual Tour Tour { get; set; }
-
-        public List<Tour> ListTour = new List<Tour>();
     }
 }

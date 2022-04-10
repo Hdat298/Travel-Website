@@ -91,7 +91,6 @@
             <h1 class="heading">
                 <span>TOURS NGHỈ DƯỠNG</span>
             </h1>
-            <div class="btn">Xem Thêm</div>
             <div class="box-container">
                 @{int i = 0;}
                 @foreach (Tour item in Model.tourlist)
@@ -130,22 +129,26 @@
                                 <a href="#" class="btn" onclick="location.href='@Url.Action("TourDetails", "Home", new { id = item.ID })'">Chi tiết tour</a>
                             </div>
                         </div>
-                        <a href="#" class="btn" onclick="location.href='@Url.Action("TourList", "Home", new { id = item.MaLoaiTour })'">Xem thêm tour khác</a>
                         i++;
                     }
-
                 }
             </div>
-        </div>
+            @{i = 0;}
+            @foreach (Tour item in Model.tourlist)
+            {
+                if (item.MaLoaiTour == 1 && i < 1)
+                {
+                    <div class="btn" onclick="location.href='@Url.Action("TourList", "Home", new { id = item.MaLoaiTour })'">Xem Thêm</div>
+                    i++;
+                }
+            }
+                </div>
         <!--end-tour-nghi-duong-->
         <!--tour-sinh-thai-->
         <div class="tour-container">
             <h1 class="heading">
                 <span>TOURS SINH THÁI</span>
             </h1>
-            <div class="btn">
-                Xem Thêm
-            </div>
             <div class="box-container">
                 @{int i1 = 0;}
                 @foreach (Tour item in Model.tourlist)
@@ -184,13 +187,21 @@
                                 <div class="price">@item.Gia vnd<span> 20.000.000vnd</span></div>
                                 <a href="#" class="btn" onclick="location.href='@Url.Action("DatTour", "Home", new { id = item.ID })'">book now</a>
                                 <a href="#" class="btn" onclick="location.href='@Url.Action("TourDetails", "Home", new { id = item.ID })'">Chi tiết tour</a>
-                            </div>
-                            <a href="#" class="btn" onclick="location.href='@Url.Action("TourList", "Home", new { id = item.MaLoaiTour })'">Xem thêm tour khác</a>
-                        </div>         
+                            </div>                        
+                        </div>
                         i1++;
                     }
                 }
             </div>
+            @{i1 = 0;}
+            @foreach (Tour item in Model.tourlist)
+            {
+                if (item.MaLoaiTour == 3 && i1 < 1)
+                {
+                    <div class="btn" onclick="location.href='@Url.Action("TourList", "Home", new { id = item.MaLoaiTour })'">Xem Thêm</div>
+                    i1++;
+                }
+            }
         </div>
         <!--end-tour-sinh-thai-->
         <!--tour-VH-LS-->
@@ -198,11 +209,10 @@
             <h1 class="heading">
                 <span>TOURS VĂN HÓA - LỊCH SỬ</span>
             </h1>
-            <div class="btn">Xem Thêm</div>
             <div class="box-container">
                 @{int i2 = 0;}
                 @foreach (Tour item in Model.tourlist)
-                {                  
+                {
                     if (item.MaLoaiTour == 3 && i2 < 2)
                     {
 
@@ -237,12 +247,20 @@
                                 <a href="#" class="btn" onclick="location.href='@Url.Action("DatTour", "Home", new { id = item.ID })'">book now</a>
                                 <a href="#" class="btn" onclick="location.href='@Url.Action("TourDetails", "Home", new { id = item.ID })'">Chi tiết tour</a>
                             </div>
-                            <a href="#" class="btn" onclick="location.href='@Url.Action("TourList", "Home", new { id = item.MaLoaiTour })'">Xem thêm tour khác</a>
                         </div>
                         i2++;
-                    }                                            
+                    }
                 }
             </div>
+            @{i2 = 0;}
+            @foreach (Tour item in Model.tourlist)
+            {
+                if (item.MaLoaiTour == 2 && i2 < 1)
+                {
+                    <div class="btn" onclick="location.href='@Url.Action("TourList", "Home", new { id = item.MaLoaiTour })'">Xem Thêm</div>
+                    i2++;
+                }
+            }
         </div>
         <!--end-tour-VH-LS-->
 

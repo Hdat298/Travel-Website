@@ -67,25 +67,9 @@ namespace Travel_Website.Controllers
         public ActionResult Index()
         {
             dynamic dy = new ExpandoObject();
-            dy.hinhanhttlist = getHinhAnhTinhThanh();
-            dy.tinhthanhlist = getTinhThanh();
             dy.tourlist = getTour();
             dy.loaitourlist = getLoaiTours();
             return View(dy);
-        }
-
-        public List<HinhAnhTinhThanh> getHinhAnhTinhThanh()
-        {
-            Model1 context = new Model1();
-            List<HinhAnhTinhThanh> tinhThanhs = context.HinhAnhTinhThanhs.ToList();
-            return tinhThanhs;
-        }
-
-        public List<TinhThanh> getTinhThanh()
-        {
-            Model1 context = new Model1();
-            List<TinhThanh> tinhThanhs = context.TinhThanhs.ToList();
-            return tinhThanhs;
         }
 
         public List<Tour> getTour()

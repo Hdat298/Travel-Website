@@ -184,25 +184,20 @@
     <Compile Include="Areas\admin\Controllers\AdminController.cs" />
     <Compile Include="Controllers\DatTourController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ImagesTController.cs" />
     <Compile Include="Controllers\KhachHangController.cs" />
     <Compile Include="Controllers\LoaiTourController.cs" />
     <Compile Include="Controllers\SearchTourController.cs" />
-    <Compile Include="Controllers\TinhThanhController.cs" />
     <Compile Include="Controllers\TourController.cs" />
     <Compile Include="Controllers\ViewKhachHangController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ChiTietDatTour.cs" />
-    <Compile Include="Models\ChiTietTour.cs" />
     <Compile Include="Models\DatTour.cs" />
-    <Compile Include="Models\HinhAnhTinhThanh.cs" />
     <Compile Include="Models\KhachHang.cs" />
     <Compile Include="Models\LoaiTour.cs" />
     <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\TaiKhoanAdmin.cs" />
-    <Compile Include="Models\TinhThanh.cs" />
     <Compile Include="Models\Tour.cs" />
     <Compile Include="Others\PayCompare.cs" />
     <Compile Include="Others\PayLib.cs" />
@@ -348,15 +343,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Signup.cshtml" />
     <Content Include="Views\Shared\Layout2.cshtml" />
-    <Content Include="Views\ImagesT\Index.cshtml" />
-    <Content Include="Views\ImagesT\Details.cshtml" />
-    <Content Include="Views\ImagesT\Create.cshtml" />
-    <Content Include="Views\ImagesT\Edit.cshtml" />
-    <Content Include="Views\TinhThanh\Index.cshtml" />
-    <Content Include="Views\TinhThanh\Details.cshtml" />
-    <Content Include="Views\TinhThanh\HinhAnhs.cshtml" />
-    <Content Include="Views\TinhThanh\Create.cshtml" />
-    <Content Include="Views\TinhThanh\Edit.cshtml" />
     <Content Include="Views\Tour\Index.cshtml" />
     <Content Include="Views\Tour\Details.cshtml" />
     <Content Include="Views\Tour\Create.cshtml" />
