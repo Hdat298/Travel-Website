@@ -5,7 +5,7 @@
     Layout = "~/Areas/admin/Views/Shared/AdminLayout.cshtml";
 }
 <!DOCTYPE html>
-<htm>
+<html>
     <head>
         <link rel="stylesheet" href="~/Content/tourDescriptionStyle.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,11 +28,18 @@
                 }
                 <br>
                 <h2>Chi tiết về tour</h2>
-                <p>
-                    @Html.DisplayFor(model => model.NoiDung)
-                </p>
+                <ol>
+                    @{ 
+                        string[] ps = Model.ChiTietTour.Split('.');
+
+                        for (byte i = 0; i < ps.Length; i++)
+                        {
+                            <li>@ps[i]</li>
+                        }
+                    }
+                </ol>
             </div>
             <div class="clearfix"></div>
         </div>
     </body>
-</htm>
+</html>
