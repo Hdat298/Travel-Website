@@ -204,6 +204,9 @@
     <Compile Include="Models\TaiKhoanAdmin.cs" />
     <Compile Include="Models\TinhThanh.cs" />
     <Compile Include="Models\Tour.cs" />
+    <Compile Include="Others\PayCompare.cs" />
+    <Compile Include="Others\PayLib.cs" />
+    <Compile Include="Others\Util.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -377,6 +380,7 @@
     <Content Include="Views\Home\TourDetails.cshtml" />
     <Content Include="Views\Home\TourList.cshtml" />
     <Content Include="Views\SearchTour\searchResult.cshtml" />
+    <Content Include="Views\Home\PaymentConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

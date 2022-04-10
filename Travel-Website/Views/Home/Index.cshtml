@@ -95,7 +95,7 @@
             <div class="box-container">
                 @{int i = 0;}
                 @foreach (Tour item in Model.tourlist)
-                {              
+                {
                     if (item.MaLoaiTour == 1 && i < 2)
                     {
                         <div class="box">
@@ -106,9 +106,9 @@
                                     var base64 = Convert.ToBase64String(item.HinhAnh.ToArray());
                                     imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
                                 }
-                                
+
                             }
-                            <img src='@imgsrc'/>
+                            <img src='@imgsrc' />
                             <div class="content">
                                 <h3>
                                     <i class="fas fa-map-marker-alt">
@@ -129,11 +129,11 @@
                                 <a href="#" class="btn" onclick="location.href='@Url.Action("DatTour", "Home", new { id = item.ID })'">book now</a>
                                 <a href="#" class="btn" onclick="location.href='@Url.Action("TourDetails", "Home", new { id = item.ID })'">Chi tiết tour</a>
                             </div>
-                            <a href="#" class="btn" onclick="location.href='@Url.Action("TourList", "Home", new { id = item.MaLoaiTour })'">Xem thêm tour khác</a>
-                        </div> 
-                        i++; 
+                        </div>
+                        <a href="#" class="btn" onclick="location.href='@Url.Action("TourList", "Home", new { id = item.MaLoaiTour })'">Xem thêm tour khác</a>
+                        i++;
                     }
-                   
+
                 }
             </div>
         </div>
