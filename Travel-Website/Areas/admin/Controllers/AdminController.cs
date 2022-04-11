@@ -11,6 +11,10 @@ namespace Travel_Website.Areas.admin.Controllers
     {
         public ActionResult loadContact()
         {
+            if (Session["adAccount"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             Model1 context = new Model1();
             List<LienHe> lstContact = context.LienHes.ToList();
             return View(lstContact);
@@ -18,6 +22,10 @@ namespace Travel_Website.Areas.admin.Controllers
 
         public ActionResult dashBoard()
         {
+            if (Session["adAccount"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             Model1 context = new Model1();
             List<ChiTietDatTour> ctdt = context.ChiTietDatTours.ToList();
             return View(ctdt);

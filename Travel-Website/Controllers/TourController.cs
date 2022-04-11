@@ -14,7 +14,7 @@ namespace Travel_Website.Controllers
         {
             if (Session["adAccount"] == null)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Admin", new { area = "admin" });
             }
             Model1 context = new Model1();
             List<Tour> Tours = context.Tours.ToList();
