@@ -69,6 +69,14 @@
             </div>
 
             <div class="form-group">
+                @Html.LabelFor(model => model.ChiTietTour, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <textarea name="ChiTietTour"></textarea>
+                    @Html.ValidationMessageFor(model => model.ChiTietTour, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
                 @Html.LabelFor(model => model.LoaiTour.TenLoaiTour, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.DropDownList("MaLoaiTour", new SelectList(Model.ListLoaiTour, "ID", "TenLoaiTour"), htmlAttributes: new { @class = "form-control" })
