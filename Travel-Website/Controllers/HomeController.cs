@@ -102,15 +102,19 @@ namespace Travel_Website.Controllers
             string kPhone = ff["txtPhone"].ToString();
             string kSubject = ff["txtSubject"].ToString();
             string kContent = ff["txtContent"].ToString();
+
             Model1 context = new Model1();
             LienHe contact = new LienHe();
+
             contact.Ten = kName;
             contact.SDT = kPhone;
             contact.email = kMail;
             contact.NoiDung = kSubject;
             contact.TinNhan = kContent;
+
             context.LienHes.Add(contact);
             context.SaveChanges();
+
             TempData["msg2"] = "<script>alert('Cảm ơn quý khách đã đóng góp, chúng tôi sẽ tiếp nhận thông tin.');</script>";
             return RedirectToAction("Index", "Home");
         }
@@ -142,6 +146,12 @@ namespace Travel_Website.Controllers
                     KhachHang1.SDT = Request.Form["SDT"];
                     KhachHang1.TenDangNhap = Request.Form["TenDangNhap"];
                     KhachHang1.MatKhau = transMD5(Request.Form["MatKhau"]);
+
+                    if (KhachHang1.Ten == "" || KhachHang1.SDT == "" || KhachHang1.TenDangNhap == "" || KhachHang1.MatKhau == "")
+                    {
+                        ViewBag.All = "Vui lòng nhập đầy đủ thông tin";
+                        return View();
+                    }
 
                     context.KhachHangs.Add(KhachHang1);
                     context.SaveChanges();
@@ -205,6 +215,12 @@ namespace Travel_Website.Controllers
                 tinhthanh.ThanhTien = Tour.Gia * tinhthanh.SoCho;
                 tinhthanh.MaTour = id;
                 var TongTien = tinhthanh.ThanhTien;
+
+                if (tinhthanh.SoCho == null)
+                {
+                    ViewBag.missing = "Vui lòng nhập số chỗ";
+                }
+
                 context.DatTours.Add(tinhthanh);
                 context.SaveChanges();
 

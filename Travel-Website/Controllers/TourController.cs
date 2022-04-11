@@ -52,7 +52,7 @@ namespace Travel_Website.Controllers
                 Tour.SoCho = int.Parse(Request.Form["SoCho"]);
                 Tour.NoiDung = Request.Form["NoiDung"];
                 Tour.MaLoaiTour = int.Parse(Request.Form["MaLoaiTour"]);
-                //Tour.ChiTietTour = Request.Form("ChiTietTour");
+                Tour.ChiTietTour = Request.Form["ChiTietTour"];
 
                 if (file != null)
                 {
@@ -97,6 +97,7 @@ namespace Travel_Website.Controllers
             Tour.SoCho = int.Parse(Request.Form["SoCho"]);
             Tour.NoiDung = Request.Form["NoiDung"];
             Tour.MaLoaiTour = int.Parse(Request.Form["MaLoaiTour"]);
+            Tour.ChiTietTour = Request.Form["ChiTietTour"];
 
             if (file != null)
             {
