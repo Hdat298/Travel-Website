@@ -1026,7 +1026,6 @@ section {
 .action .menu ul li a {
     display: inline-block;
     text-decoration: none;
-    counter-reset: #555;
     font-weight: 500;
     transition: 0.5s;
 }
