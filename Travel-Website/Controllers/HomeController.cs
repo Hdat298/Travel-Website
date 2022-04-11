@@ -69,7 +69,7 @@ namespace Travel_Website.Controllers
             dynamic dy = new ExpandoObject();
             dy.tourlist = getTour();
             dy.loaitourlist = getLoaiTours();
-            dy.lienhe = getLienHes();
+            //dy.lienhe = getLienHes();
             return View(dy);
         }
 
@@ -87,11 +87,32 @@ namespace Travel_Website.Controllers
             return tinhThanhs;
         }
 
-        public List<LienHe> getLienHes()
+        //public List<LienHe> getLienHes()
+        //{
+        //    Model1 context = new Model1();
+        //    List<LienHe> tinhThanhs = context.LienHes.ToList();
+        //    return tinhThanhs;
+        //}
+
+        [HttpPost]
+        public ActionResult contact(FormCollection ff)
         {
+            string kName = ff["txtName"].ToString();
+            string kMail = ff["txtMail"].ToString();
+            string kPhone = ff["txtPhone"].ToString();
+            string kSubject = ff["txtSubject"].ToString();
+            string kContent = ff["txtContent"].ToString();
             Model1 context = new Model1();
-            List<LienHe> tinhThanhs = context.LienHes.ToList();
-            return tinhThanhs;
+            LienHe contact = new LienHe();
+            contact.Ten = kName;
+            contact.SDT = kPhone;
+            contact.email = kMail;
+            contact.NoiDung = kSubject;
+            contact.TinNhan = kContent;
+            context.LienHes.Add(contact);
+            context.SaveChanges();
+            TempData["msg2"] = "<script>alert('Cảm ơn quý khách đã đóng góp, chúng tôi sẽ tiếp nhận thông tin.');</script>";
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]

@@ -48,9 +48,7 @@ namespace Travel_Website.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DatTour> DatTours { get; set; }
-
         public virtual LoaiTour LoaiTour { get; set; }
-
 
         public List<LoaiTour> ListLoaiTour = new List<LoaiTour>();
 

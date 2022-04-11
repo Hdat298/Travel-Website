@@ -512,18 +512,21 @@
                 <img src="~/Content/Images/contact-img.svg" />
             </div>
 
-            <form>
+            @Html.BeginForm("contact", "Home")
+            { 
                 <div class="inputBox">
-                    <input type="text" placeholder="tên" />
-                    <input type="email" placeholder="email" />
+                    <input name="txtName" type="text" placeholder="tên" />
+                    <input name="txtMail" type="email" placeholder="email" />
                 </div>
                 <div class="inputBox">
-                    <input type="tel" placeholder="số điện thoại" />
-                    <input type="text" placeholder="nội dung" />
+                    <input name="txtPhone" type="tel" placeholder="số điện thoại" />
+                    <input name="txtSubject" type="text" placeholder="nội dung" />
                 </div>
-                <textarea placeholder="tin nhắn" cols="30" rows="10"></textarea>
+                <textarea name="txtContent" placeholder="tin nhắn" cols="30" rows="10"></textarea>
                 <input type="submit" class="btn" value="gửi" />
-            </form>
+
+                @Html.Raw(TempData["msg2"])
+            }
         </div>
     </section>
     <!--end-contact-section-->

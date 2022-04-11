@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Travel_Website.Models.LienHe>
+
+@{
+    ViewBag.Title = "loadContact";
+    Layout = "~/Areas/admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/tourIndexStyle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+    <div class="contact-container">
+        <table class="title">
+            <tr>
+                <td>
+                    Mã Liên Hệ
+                </td>
+                <td>
+                    Tên
+                </td>
+                <td>
+                    Email
+                </td>
+                <td>
+                    Số Điện Thoại
+                </td>
+                <td>
+                    Nội Dung
+                </td>
+                <td>
+                    Tin Nhắn
+                </td>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaLienHe)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ten)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SDT)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NoiDung)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TinNhan)
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</body>
+</html>
+

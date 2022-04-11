@@ -9,6 +9,12 @@ namespace Travel_Website.Areas.admin.Controllers
 {
     public class AdminController : Controller
     {
+        public ActionResult loadContact()
+        {
+            Model1 context = new Model1();
+            List<LienHe> lstContact = context.LienHes.ToList();
+            return View(lstContact);
+        }
 
         public ActionResult dashBoard()
         {
