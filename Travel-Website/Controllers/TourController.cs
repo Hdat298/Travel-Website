@@ -66,7 +66,7 @@ namespace Travel_Website.Controllers
             }
             return View();
         }
-
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             Model1 context = new Model1();

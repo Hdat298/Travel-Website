@@ -50,6 +50,8 @@ namespace Travel_Website.Models
         public virtual ICollection<DatTour> DatTours { get; set; }
 
         public virtual LoaiTour LoaiTour { get; set; }
+
+
         public List<LoaiTour> ListLoaiTour = new List<LoaiTour>();
 
     }

@@ -99,20 +99,16 @@
                     <tr>
                         @foreach (var item1 in t1)
                         {
-                            foreach (var item2 in t2)
-                            {
-                                <td>@item2.Ten</td>
+                                <td>@item1.Tour.TenTour</td>
                                 <td>@item1.ThanhTien</td>
                                 <td>Paid</td>
                                 <td><span class="status delivered">Delivered</span></td>
-                            }
                         }
-
                     </tr>
                 </tbody>
             </table>
          </div>
-        }
+
         <!--customer-details-->
         <div class="recentCustomers">
             <div class="cardHeader">
@@ -120,10 +116,14 @@
             </div>
             <table>
                 <tr>
-                    <td><h4>David <br><span>Italy</span></h4></td>
+                    @foreach (var item2 in t2)
+                    {
+                    <td><h4>@item2.Ten<br><span>Việt Nam</span></h4></td>
+                    }
                 </tr>
             </table>
         </div>
+        }
     </div>
     <!--detail-list-end-->
 

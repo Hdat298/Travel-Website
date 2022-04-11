@@ -195,6 +195,7 @@
     <Compile Include="Models\ChiTietDatTour.cs" />
     <Compile Include="Models\DatTour.cs" />
     <Compile Include="Models\KhachHang.cs" />
+    <Compile Include="Models\LienHe.cs" />
     <Compile Include="Models\LoaiTour.cs" />
     <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\TaiKhoanAdmin.cs" />
