@@ -344,7 +344,6 @@
     <Content Include="Views\Tour\Index.cshtml" />
     <Content Include="Views\Tour\Details.cshtml" />
     <Content Include="Views\Tour\Create.cshtml" />
-    <Content Include="Views\Tour\Edit.cshtml" />
     <Content Include="Views\LoaiTour\Index.cshtml" />
     <Content Include="Views\LoaiTour\Details.cshtml" />
     <Content Include="Views\LoaiTour\Create.cshtml" />
@@ -364,6 +363,7 @@
     <Content Include="Views\Home\TourDetails.cshtml" />
     <Content Include="Views\Home\TourList.cshtml" />
     <Content Include="Views\SearchTour\searchResult.cshtml" />
+    <Content Include="Views\Tour\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

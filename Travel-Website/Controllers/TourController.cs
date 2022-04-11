@@ -69,6 +69,7 @@ namespace Travel_Website.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
+
             Model1 context = new Model1();
             Tour Tour = context.Tours.FirstOrDefault(x => x.ID == id);
             Tour.ListLoaiTour = context.LoaiTours.ToList();
@@ -76,8 +77,10 @@ namespace Travel_Website.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, HttpPostedFileBase file)
         {
+            ModelState.Clear();
             Model1 context = new Model1();
             Tour Tour = context.Tours.FirstOrDefault(x => x.ID == id);
             Tour.ListLoaiTour = context.LoaiTours.ToList();
