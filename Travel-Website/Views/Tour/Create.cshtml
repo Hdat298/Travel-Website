@@ -39,7 +39,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.NgayKhoiHanh, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.NgayKhoiHanh, new { htmlAttributes = new { @class = "form-control" } })
+                    <input type="date" name="NgayKhoiHanh"/>
                     @Html.ValidationMessageFor(model => model.NgayKhoiHanh, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -47,7 +47,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.NgayKetThuc, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.NgayKetThuc, new { htmlAttributes = new { @class = "form-control" } })
+                    <input type="date" name="NgayKetThuc"/>
                     @Html.ValidationMessageFor(model => model.NgayKetThuc, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -63,7 +63,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.NoiDung, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.NoiDung, new { htmlAttributes = new { @class = "form-control" } })
+                    <textarea name="NoiDung"></textarea>
                     @Html.ValidationMessageFor(model => model.NoiDung, "", new { @class = "text-danger" })
                 </div>
             </div>

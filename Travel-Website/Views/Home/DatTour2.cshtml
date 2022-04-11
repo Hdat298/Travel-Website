@@ -2,7 +2,7 @@
 @using Travel_Website.Models;
 
 @{
-    ViewBag.Title = "DatTour2";
+    ViewBag.Title = "Đặt Tour";
     Layout = null;
 }
 <!DOCTYPE html>
@@ -12,45 +12,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - DDT Group - Travel Around The World.</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <link rel="stylesheet"
-          href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="~/Content/userStyle.css" />
     @Styles.Render("~/Content/css")
 </head>
 <body>
-    <div class="book2">
+    <div class="container booked-container">
         <div class="book2-container">
-            @using (Html.BeginForm())
-            {
-                @Html.AntiForgeryToken()
-
-                <div class="form-horizontal">
-                    <h4>DatTour</h4>
-                    <hr />
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-                    <div class="form-group">
-                        <a>Ngày Đặt</a>
-                        <div class="col-md-10">
-                            @DateTime.Now.ToString()
-                            @Html.ValidationMessageFor(model => model.NgayDat, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        Số Người
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.SoCho, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.SoCho, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="DatTour2" class="btn btn-default" />
-                        </div>
+            <div class="col-md-4 mt-1">
+                <div class="card text-center sidebar">
+                    <div class="card-body">
+                        <img src="~/Content/Images/Payment-img.svg" />
                     </div>
                 </div>
-            }
+            </div>
+            <div class="col-md-4 mt-1">
+                <div class="card mb-3">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Ngày Đặt</h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                @DateTime.Now.ToString()
+                                @Html.ValidationMessageFor(model => model.NgayDat, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Số Người</h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                @Html.EditorFor(model => model.SoCho, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.SoCho, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <input type="submit" value="Thanh Toán" class="btn btn-default" />
+
+                    }
+                </div>
+            </div>
+            
         </div>
     </div>
     

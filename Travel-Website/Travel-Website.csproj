@@ -227,6 +227,7 @@
     <Content Include="Content\Images\booked-img.svg" />
     <Content Include="Content\Images\contact-img.svg" />
     <Content Include="Content\Images\edit-tour-img.svg" />
+    <Content Include="Content\Images\Payment-img.svg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Images\profile-img.svg" />
     <Content Include="Content\tourDetailStyle.css" />
