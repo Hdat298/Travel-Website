@@ -301,6 +301,8 @@
     <Content Include="Areas\admin\Views\Admin\dashBoard.cshtml" />
     <Content Include="Areas\admin\Views\Admin\Login.cshtml" />
     <Content Include="Areas\admin\Views\Admin\loadContact.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
