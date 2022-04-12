@@ -55,7 +55,7 @@
                                 <i class="far fa-star"></i>
                             </div>
                             <div class="price">@item.Gia vnd<span> 20.000.000vnd</span></div>
-                            <a href="#" class="btn" onclick="location.href='@Url.Action("DatTour", "Home", new { id = item.ID })'">book now</a>
+                            <a href="#" class="btn" onclick="location.href='@Url.Action("DatTour", "Home", new { id = item.ID })'">đặt ngay</a>
                             <a href="#" class="btn" onclick="location.href='@Url.Action("TourDetails", "Home", new { id = item.ID })'">Chi tiết tour</a>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
     </section>
    
     <br />
-    Page @(Model.PageCount <Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount)
+    @*Page @(Model.PageCount <Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount)*@
 
     <div>
         @Html.PagedListPager(Model, page => Url.Action("TourList", new { page = page }))

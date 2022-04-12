@@ -43,7 +43,7 @@
                 <div class="form-group">
                     Ngày Khởi Hành
                     <div class="col-md-10">
-                        <input type="date" name="NgayKhoiHanh" value="@Model.NgayKhoiHanh" />
+                        <input type="datetime" name="NgayKhoiHanh" value="@Model.NgayKhoiHanh" />
                         @Html.ValidationMessageFor(model => model.NgayKhoiHanh, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                 <div class="form-group">
                     Ngày Kết Thúc
                     <div class="col-md-10">
-                        <input type="date" name="NgayKetThuc" value="@Model.NgayKetThuc" />
+                        <input type="datetime" name="NgayKetThuc" value="@Model.NgayKetThuc" />
                         @Html.ValidationMessageFor(model => model.NgayKetThuc, "", new { @class = "text-danger" })
                     </div>
                 </div>
