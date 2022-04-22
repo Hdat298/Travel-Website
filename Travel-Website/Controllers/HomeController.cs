@@ -374,7 +374,7 @@ namespace Travel_Website.Controllers
                 context.KhachHangs.AddOrUpdate(s);
                 context.SaveChanges();
                 //mail.Send(message);
-                GuiEmail("Thông báo về việc thay đổi mật khẩu của DDT Tour", s.TenDangNhap, "daonhattin12@gmail.com", "nhattin12", "Mật khẩu của bạn đã được reset thành " + pass);
+                GuiEmail("Thông báo về việc thay đổi mật khẩu của DDT Tour", s.TenDangNhap, "YourMail", "YourPasswordMail", "Mật khẩu của bạn đã được reset thành " + pass);
                 ViewBag.Message = "Đã gửi mail thành công!!! Vui lòng kiểm tra email";
                 return RedirectToAction("Index", "Home");
             }
